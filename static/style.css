@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&family=Roboto&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0px dashed yellow;
+  overflow: hidden;
+}
+
+:root {
+  --oil-black: #0c0c0c;
+  --obsidian: #0b1215;
+  --dark-slate-gray: #0d1717;
+  --midnight-blue: #101720;
+  --charcoal-gray: #171717;
+  --deep-navyblue: #011222;
+  --rich-black: #020d19;
+  --low-white: #fbfcff;
+  --bold-color: gold;
+
+  --primary-dark-color: #301934;
+  --primary-white-color: #fff0f5;
+}
+
+.theme-light {
+  --primary-color: var(--primary-white-color);
+  --secondary-color: var(--midnight-blue);
+  --text-color: var(--primary-dark-color);
+}
+
+.theme-dark {
+  --primary-color: var(--primary-dark-color);
+  --secondary-color: var(--bold-color);
+  --text-color: var(--primary-white-color);
+}
+
+body {
+  background-color: var(--primary-color) !important;
+}
+
+.navbar {
+  background-color: inherit !important;
+}
+
+.navbar .container-fluid,
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.navbar .container-fluid {
+  gap: 20px;
+}
+
+.navbar-brand {
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  order: 2;
+}
+
+.navbar a:not(:first-child) {
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar a span {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.navbar a {
+  color: var(--text-color) !important;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.navbar-toggler {
+  outline: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  order: 1;
+}
+
+.navbar-collapse {
+  order: 3;
+}
+
+.navbar-toggler:focus svg {
+  fill: var(--secondary-color) !important;
+}
+
+.navbar-toggler svg {
+  width: 25px;
+  height: 25px;
+  fill: var(--text-color) !important;
+}
+
+a.disabled {
+  color: rgba(204, 204, 204, 0.5) !important;
+}
+
+.matrix-container {
+  position: absolute;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.3; /* Adjust opacity as needed */
+  z-index: -1;
+}
+
+.matrix-text {
+  background-color: transparent;
+  color: #9dc9d4; /* Color of the matrix text */
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
