@@ -3,8 +3,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  outline: 0px dashed yellow;
-  overflow: hidden;
+  outline: 1px dashed black;
 }
 
 :root {
@@ -15,23 +14,28 @@
   --charcoal-gray: #171717;
   --deep-navyblue: #011222;
   --rich-black: #020d19;
-  --low-white: #fbfcff;
+  --low-white: #f7ede8;
+  --red: #d11d27;
   --bold-color: gold;
 
   --primary-dark-color: #301934;
-  --primary-white-color: #fff0f5;
+  --primary-white-color: var(--low-white);
 }
 
 .theme-light {
   --primary-color: var(--primary-white-color);
-  --secondary-color: var(--midnight-blue);
-  --text-color: var(--primary-dark-color);
+  --navbar-color: #fff;
+  --secondary-color: var(--red);
+  --text-color: var(--oil-black);
+  --active-color: var(--red);
 }
 
 .theme-dark {
   --primary-color: var(--primary-dark-color);
+  --navbar-color: var(--deep-navyblue);
   --secondary-color: var(--bold-color);
   --text-color: var(--primary-white-color);
+  --active-color: var(--bold-color);
 }
 
 body {
@@ -39,14 +43,15 @@ body {
 }
 
 .navbar {
-  background-color: inherit !important;
+  background-color: var(--navbar-color) !important;
 }
 
 .navbar .container-fluid,
 .navbar-nav {
+  padding: 0 10px;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: space-between;
 }
 
 .navbar .container-fluid {
@@ -64,15 +69,26 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.nav-link.active {
+  color: var(--active-color) !important;
+  font-weight: 600;
+}
+
+.nav-link {
+  color: var(--text-color);
+}
+
 .navbar a span {
   color: var(--secondary-color);
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 25px !important;
 }
 
 .navbar a {
   color: var(--text-color) !important;
   text-transform: capitalize;
   letter-spacing: 1px;
+  pointer-events: auto;
 }
 
 .navbar-toggler {
@@ -97,7 +113,8 @@ body {
 }
 
 a.disabled {
-  color: rgba(204, 204, 204, 0.5) !important;
+  cursor: help !important;
+  pointer-events: auto;
 }
 
 .matrix-container {
@@ -107,16 +124,29 @@ a.disabled {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.3; /* Adjust opacity as needed */
+  opacity: 0.5; /* Adjust opacity as needed */
   z-index: -1;
 }
 
 .matrix-text {
   background-color: transparent;
-  color: #9dc9d4; /* Color of the matrix text */
+  color: var(--secondary-color) !important; /* Color of the matrix text */
   font-family: "Courier New", monospace;
   font-size: 16px;
   position: absolute;
   pointer-events: none;
   user-select: none;
+}
+
+.theme-toggler {
+  background-color: inherit;
+  border: none;
+  width: auto;
+  height: auto;
+  order: 3;
+}
+.theme-toggler .bi {
+  color: var(--secondary-color) !important;
+  width: 30px !important;
+  height: 30px !important;
 }
