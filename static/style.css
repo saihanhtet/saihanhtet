@@ -7,48 +7,78 @@
 }
 
 :root {
-  --oil-black: #0c0c0c;
-  --obsidian: #0b1215;
-  --dark-slate-gray: #0d1717;
-  --midnight-blue: #101720;
-  --charcoal-gray: #171717;
-  --deep-navyblue: #011222;
-  --rich-black: #020d19;
-  --low-white: #f7ede8;
-  --red: #ec5159;
-  --bold-color: gold;
+  --oil-black: rgb(12, 12, 12);
+  --obsidian: rgb(11, 18, 21);
+  --dark-slate-gray: rgb(13, 23, 23);
+  --midnight-blue: rgb(16, 23, 32);
+  --charcoal-gray: rgb(23, 23, 23);
+  --deep-navyblue: rgb(1, 18, 34);
+  --rich-black: rgb(2, 13, 25);
+  --low-white: rgb(247, 237, 232);
+  --red: rgb(236, 81, 89);
+  --bold-color: rgb(255, 215, 0);
 
-  --primary-dark-color: #301934;
+  --primary-dark-color: rgb(48, 25, 52);
   --primary-white-color: var(--low-white);
 }
 
 .theme-light {
-  --primary-color: var(--primary-white-color);
-  --navbar-color: #fff;
-  --secondary-color: var(--red);
-  --text-color: var(--oil-black);
-  --active-color: var(--red);
-  --reverse-primary: var(--primary-dark-color);
-  --reverse-secondary: var(--bold-color);
-  --reverse-text: var(--primary-white-color);
+  --primary-color: rgb(247, 237, 232);
+  --primary-30: rgba(247, 237, 232, 0.3);
+  --navbar-color: rgb(255, 255, 255);
+  --navbar-30: rgba(255, 255, 255, 0.3);
+  --secondary-color: rgb(236, 81, 89);
+  --text-color: rgb(12, 12, 12);
+  --text-30: rgb(12, 12, 12, 0.3);
+  --active-color: rgb(236, 81, 89);
+  --reverse-primary: rgb(48, 25, 52);
+  --reverse-secondary: rgb(255, 215, 0);
+  --reverse-text: rgb(247, 237, 232);
 }
 
 .theme-dark {
-  --primary-color: var(--primary-dark-color);
-  --navbar-color: var(--deep-navyblue);
-  --secondary-color: var(--bold-color);
-  --text-color: var(--primary-white-color);
-  --active-color: var(--bold-color);
-  --reverse-primary: var(--primary-white-color);
-  --reverse-secondary: var(--red);
-  --reverse-text: var(--oil-black);
+  --primary-color: rgb(48, 25, 52);
+  --primary-30: rgba(48, 25, 52, 0.3);
+  --navbar-color: rgb(1, 18, 34);
+  --navbar-30: rgba(1, 18, 34, 0.3);
+  --secondary-color: rgb(255, 215, 0);
+  --text-color: rgb(247, 237, 232);
+  --text-30: rgb(247, 237, 232, 0.3);
+  --active-color: rgb(255, 215, 0);
+  --reverse-primary: rgb(247, 237, 232);
+  --reverse-secondary: rgb(236, 81, 89);
+  --reverse-text: rgb(12, 12, 12);
 }
 
 body {
   background-color: var(--primary-color) !important;
+  color: var(--text-color) !important;
+  font-family: "Roboto", sans-serif !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.no-copy {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.card {
+  background-color: var(--navbar-color);
+  color: var(--text-color) !important;
 }
 
 .navbar {
+  background-color: transparent !important;
+  transition: background-color 1s ease;
+  padding: 0 15px;
+}
+
+.navbar.scrolled {
   background-color: var(--navbar-color) !important;
 }
 
@@ -106,6 +136,7 @@ body {
 
 .navbar-collapse {
   order: 3;
+  transition: all 0.3s ease-in-out;
 }
 
 .navbar-toggler:focus svg {
@@ -124,19 +155,21 @@ a.disabled {
 }
 
 .matrix-container {
-  position: absolute;
+  width: 99vw !important;
+  overflow: hidden;
+  position: fixed;
   background-color: transparent;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.5; /* Adjust opacity as needed */
+  opacity: 1;
   z-index: -1;
 }
 
 .matrix-text {
   background-color: transparent;
-  color: var(--secondary-color) !important; /* Color of the matrix text */
+  color: #c17eff !important; /* Color of the matrix text */
   font-family: "Courier New", monospace;
   font-size: 16px;
   position: absolute;
@@ -220,6 +253,102 @@ a.disabled {
 .chatters.chat-user {
   align-self: flex-end;
   border-radius: 10px 10px 0 10px;
+}
+
+/* My home Page */
+.my-card-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: calc(100vh - 100px);
+  background-color: var(--navbar-30) !important;
+}
+.my-card-box div:nth-child(2) {
+  flex: 1;
+}
+.my-card-box .name-header {
+  font-family: "Kanit", sans-serif;
+}
+.my-card-box p {
+  font-family: "Roboto", sans-serif;
+}
+.welcome-image {
+  flex: 0 0 auto;
+  width: 360px;
+  height: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 100%;
+  padding: 5px;
+  border: 5px dotted var(--text-30);
+}
+
+.welcome-image img {
+  background-color: #011222;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 100%;
+  opacity: 0.9; /* 0.9 might be more whiter */
+}
+.social-list {
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+}
+
+.social-list a {
+  color: inherit;
+  font-size: 22px;
+}
+
+.social-list a:hover {
+  color: var(--secondary-color) !important;
+}
+
+/* about me */
+.about-container {
+  overflow-y: auto;
+}
+.about-items .nav-item {
+  margin-right: 10px;
+}
+.about-items .nav-link.active {
+  background-color: inherit;
+  border: none;
+}
+.about-items .nav-link {
+  width: 100%;
+  outline: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.about-items .nav-link:focus {
+  outline: 1px solid var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .welcome-image {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+@media (min-width: 1025px) {
+  .my-card-box {
+    flex-direction: row !important;
+  }
+  .welcome-image {
+    width: 360px;
+    height: 360px;
+  }
+
+  .social-list {
+    flex-direction: column !important;
+  }
 }
 
 /* scrollbar css */

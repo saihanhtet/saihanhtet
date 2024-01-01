@@ -1,0 +1,73 @@
+{%extends 'base.html'%} {% load static %} {% block content %}
+
+<div class="d-flex flex-column p-3 gap-3">
+  <div class="card p-3 shadow-sm border-0 my-card-box d-block about-container">
+    <ul class="nav nav-tabs about-items">
+      <li class="nav-item">
+        <button
+          class="nav-link active"
+          type="button"
+          data-bs-target="#carouselAbout"
+          data-bs-slide-to="0"
+          aria-current="true"
+          aria-label="Slide 1"
+        >
+          Story
+        </button>
+      </li>
+      <li class="nav-item">
+        <button
+          class="nav-link"
+          type="button"
+          data-bs-target="#carouselAbout"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        >
+          Status
+        </button>
+      </li>
+      <li class="nav-item">
+        <button
+          class="nav-link"
+          type="button"
+          data-bs-target="#carouselAbout"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        >
+          Education
+        </button>
+      </li>
+    </ul>
+    <br />
+    <div id="carouselAbout" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container-fluid">
+            When I was 13, I started to interest like how the computer works and
+            what are the technologies. At that time, my mom bought me a laptop
+            to learn what I interest and from that days, I have been learning
+            without the ease of a day.
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container-fluid">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, ea
+            enim veniam nisi iste aspernatur in maxime, doloribus laborum omnis
+            accusantium quaerat, perferendis error rerum officia quae quasi
+            nostrum facere!
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container-fluid">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, ea
+            enim veniam nisi iste aspernatur in maxime, doloribus laborum omnis
+            accusantium quaerat, perferendis error rerum officia quae quasi
+            nostrum facere!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content%}

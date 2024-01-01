@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
+{% url 'Home' as home_url %} {% url 'AboutMe' as about_url %}
+<nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary border-0">
   <div class="container-fluid">
     <a class="navbar-brand" href="/"><span>S.</span> Han Htet San</a>
     <button
@@ -40,8 +41,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">About Me</a>
+        <a
+          class="nav-link {% if request.path == home_url %}active{% endif %}"
+          href="{{home_url}}"
+          >Home</a
+        >
+        <a
+          class="nav-link {% if request.path == about_url %}active{% endif %}"
+          href="{{about_url}}"
+          >About Me</a
+        >
         <a class="nav-link" href="#">My Skills</a>
         <a class="nav-link disabled" aria-disabled="true">My Works</a>
       </div>

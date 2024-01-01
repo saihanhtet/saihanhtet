@@ -5,4 +5,8 @@ import json
 
 
 def index(request):
-    return render(request, template_name="base.html")
+    return render(request, template_name="scenes/home_page.html")
+
+
+def aboutme(request):
+    return render(request, template_name="scenes/aboutme.html")

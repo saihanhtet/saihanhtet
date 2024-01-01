@@ -1,0 +1,42 @@
+{%extends 'base.html'%} {% load static %} {% block content %}
+
+<div class="d-flex flex-column p-3 gap-3">
+  <div class="card p-3 shadow-sm border-0 my-card-box">
+    <div class="welcome-image">
+      <img
+        src="{% static 'images/0-02-06-eefbfb1ddfee108b04eb23ac13060a50d90486a11b4a493bb2fe708377a51ddf_718f90da5d096e0a.jpg' %}"
+        alt="Me sitting on the chair with curve desktop"
+        class="rounded-sm border-1"
+      />
+    </div>
+    <div class="p-md-5 p-1">
+      <h4 class="name-header mb-3">S. Han Htet San</h4>
+      <p>
+        <span id="time-greet">Good morning!</span> Everyone! 😊 I'm
+        <span class="name">Sai Han Htet</span> (<span class="alias-name"
+          >Ivan</span
+        >) , a junior software developer excited about coding adventures and
+        creating cool stuff.
+      </p>
+    </div>
+    <ul class="social-list list-unstyled">
+      <li>
+        <a href="https://web.facebook.com/hanhtet.ivan"
+          ><i class="bi bi-facebook"></i
+        ></a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/hanhtet.ivan/"
+          ><i class="bi bi-instagram"></i
+        ></a>
+      </li>
+      <li>
+        <a href="https://github.com/saihanhtet"><i class="bi bi-github"></i></a>
+      </li>
+    </ul>
+  </div>
+  <div class="card p-3 shadow-sm border-0">2card</div>
+  <div class="card p-3 shadow-sm border-0">3card</div>
+</div>
+
+{% endblock content%}

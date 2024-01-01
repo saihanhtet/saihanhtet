@@ -6,10 +6,10 @@ function setTheme(themeName) {
 
 // Function to toggle between light and dark themes
 function toggleTheme() {
-  if (localStorage.getItem("theme") === "theme-dark") {
-    setTheme("theme-light");
-  } else {
+  if (localStorage.getItem("theme") === "theme-light") {
     setTheme("theme-dark");
+  } else {
+    setTheme("theme-light");
   }
 }
 
@@ -27,42 +27,62 @@ function toggleThemeIcon() {
 
   button.innerHTML = icon;
 }
+
 // function that create the snow flakes
+let snowflakes = [];
+
 function createSnowflakes() {
   const matrixContainer = document.querySelector(".matrix-container");
-  const columns = Math.floor(window.innerWidth / 10); // Number of columns based on window width
-  const snowflakes = [];
+  const columns = Math.floor(window.innerWidth / 10);
+  const windowHeight = window.innerHeight; // Get window height
+
+  // Clear existing snowflakes before recreating them
+  matrixContainer.innerHTML = "";
+  snowflakes = [];
 
   for (let i = 0; i < columns; i++) {
     const snowflake = document.createElement("div");
     snowflake.classList.add("matrix-text");
     snowflake.innerText = getRandomSnowflake();
-    snowflake.style.left = i * 10 + "px"; // Position each column
-    snowflake.style.top = Math.floor(Math.random() * -1000) + "px"; // Randomize starting position
+    snowflake.style.left = i * 10 + "px";
+    snowflake.style.top = Math.floor(Math.random() * windowHeight) + "px"; // Adjust starting position
     snowflakes.push(snowflake);
     matrixContainer.appendChild(snowflake);
   }
 
-  animateSnowflakes(snowflakes);
+  animateSnowflakes();
 }
 
-function animateSnowflakes(snowflakes) {
-  const speed = 50; // Adjust the speed of falling snowflakes
+function animateSnowflakes() {
+  const speed = 50;
   setInterval(() => {
-    for (let i = 0; i < snowflakes.length; i++) {
-      const snowflake = snowflakes[i];
+    snowflakes.forEach((snowflake) => {
       let top = parseInt(snowflake.style.top);
       if (top >= window.innerHeight) {
-        snowflake.style.top = Math.floor(Math.random() * -1000) + "px"; // Reset position when snowflake reaches the bottom
+        snowflake.style.top =
+          Math.floor(Math.random() * window.innerHeight) + "px";
       } else {
-        snowflake.style.top = top + 5 + "px"; // Increment the position to simulate falling snowflakes
+        snowflake.style.top = top + 5 + "px";
       }
-    }
+    });
   }, speed);
 }
 
+function handleScroll() {
+  const scrollPosition = window.scrollY;
+  const matrixContainer = document.querySelector(".matrix-container");
+
+  if (scrollPosition > window.innerHeight && !snowflakesCreated) {
+    createSnowflakes();
+    snowflakes.forEach((snowflake) => {
+      matrixContainer.appendChild(snowflake);
+    });
+    animateSnowflakes();
+  }
+}
+
 function getRandomSnowflake() {
-  const snowflakeSet = "❄️⛄";
+  const snowflakeSet = "❄️.*";
   return snowflakeSet[Math.floor(Math.random() * snowflakeSet.length)];
 }
 
@@ -71,10 +91,25 @@ function seasonalMatrix() {
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth() + 1;
   // Check if it's winter (assuming winter is December, January, February)
-  if (currentMonth > 12) {
-    //if (currentMonth >= 12 || currentMonth <= 2) {
+  if (currentMonth >= 12 || currentMonth <= 2) {
     createSnowflakes();
   }
+}
+
+// function to out the greeting based on time
+function setGreetingTime() {
+  const currentDate = new Date();
+  const currentHour = currentDate.getHours();
+  const timeDiv = document.getElementById("time-greet");
+  var now = "";
+  if (currentHour >= 5 && currentHour < 12) {
+    now = "Good morning";
+  } else if (currentHour >= 12 && currentHour < 18) {
+    now = "Good afternoon";
+  } else {
+    now = "Good evening";
+  }
+  timeDiv.innerHTML = now;
 }
 
 async function train() {
@@ -172,7 +207,23 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     setTheme("theme-light");
   }
-
+  try {
+    setGreetingTime();
+  } catch (error) {
+    console.log(error);
+  }
   seasonalMatrix();
   chatter();
+
+  // function for navbar bg change via scrolling
+  document.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".navbar");
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > 100) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
 });
