@@ -1,0 +1,108 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hey!",
+        "Hello, thanks for dropping by!",
+        "Hi there, what brings you here today?",
+        "Hi there, how can I assist you?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "See you later, thanks for visiting!",
+        "Have a fantastic day!",
+        "Bye! Feel free to come back anytime."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to assist!", "Anytime!", "My pleasure!"]
+    },
+    {
+      "tag": "funny",
+      "patterns": [
+        "Tell me a joke!",
+        "Tell me something funny!",
+        "Do you know a joke?"
+      ],
+      "responses": [
+        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
+        "What did the buffalo say when his son left for college? Bison."
+      ]
+    },
+    {
+      "tag": "introduction",
+      "patterns": ["Who are you?", "What are you?", "Tell me about yourself."],
+      "responses": [
+        "Hi there! I'm Sai Han Htet!",
+        "Hello, I'm here to chat with you.",
+        "I'm designed to assist and engage in conversations."
+      ]
+    },
+    {
+      "tag": "about_me",
+      "patterns": [
+        "What can you do?",
+        "What are your abilities?",
+        "What are your capabilities?"
+      ],
+      "responses": [
+        "I'm a software developer and I can develop various kinds of applications like web apps and offline apps.",
+        "I'm proficient in developing different types of applications based on the requirements.",
+        "If you have any questions related to development, feel free to ask!"
+      ]
+    },
+    {
+      "tag": "contact",
+      "patterns": [
+        "How can I contact you?",
+        "What's your contact information?",
+        "Can I reach out to you?"
+      ],
+      "responses": [
+        "You can reach me via email at sai.hanhtetsan@gmail.com",
+        "Feel free to contact me via email at sai.hanhtetsan@gmail.com",
+        "You can get in touch with me through my email: sai.hanhtetsan@gmail.com"
+      ]
+    },
+    {
+      "tag": "projects",
+      "patterns": [
+        "Tell me about your projects.",
+        "What projects have you worked on?",
+        "Can you share your project experiences?"
+      ],
+      "responses": [
+        "I've worked on various projects including web applications, e-commerce sites, and mobile apps.",
+        "My projects include web development, software applications, and more.",
+        "I have experience working on different projects across multiple domains."
+      ]
+    },
+    {
+      "tag": "feedback",
+      "patterns": [
+        "How can I provide feedback?",
+        "Can I give you feedback?",
+        "I have some feedback."
+      ],
+      "responses": [
+        "I'd love to hear your feedback! You can share it via email at sai.hanhtetsan@gmail.com",
+        "Your feedback is valuable! Feel free to send it to me via email at sai.hanhtetsan@gmail.com",
+        "I appreciate your feedback! You can share it with me through my email: sai.hanhtetsan@gmail.com"
+      ]
+    }
+  ]
+}

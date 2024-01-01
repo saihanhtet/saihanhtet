@@ -77,6 +77,95 @@ function seasonalMatrix() {
   }
 }
 
+async function train() {
+  const csrftoken = getCookie("csrftoken");
+  const response = await fetch("/chatbot/train-chatbot/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": csrftoken,
+    },
+    body: JSON.stringify({}),
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    alert(data.message); // Show success message
+  } else {
+    alert("Failed to train chatbot");
+  }
+}
+
+function chatter() {
+  const chatForm = document.getElementById("chat-form");
+  const chatInput = document.getElementById("chat-input");
+  const chatBody = document.getElementById("chat-body");
+
+  chatForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const userInput = chatInput.value.trim();
+    if (!userInput) return;
+
+    const requestData = {
+      input_text: userInput,
+    };
+
+    try {
+      const csrftoken = getCookie("csrftoken"); // Function to retrieve CSRF token
+
+      const response = await fetch("/chatbot/chatbot/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": csrftoken,
+        },
+        body: JSON.stringify(requestData), // Ensure the request body contains the input_text
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log(responseData);
+        const botResponse = responseData.response_text;
+
+        const botMessage = document.createElement("div");
+        const userMessage = document.createElement("div");
+
+        botMessage.textContent = botResponse;
+        userMessage.textContent = userInput;
+
+        botMessage.classList.add("chatters", "chat-bot");
+        userMessage.classList.add("chatters", "chat-user");
+
+        chatBody.appendChild(userMessage);
+        chatBody.appendChild(botMessage);
+
+        chatInput.value = "";
+      } else {
+        console.error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  });
+}
+
+// Function to retrieve CSRF token
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.startsWith(name + "=")) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("theme") === "theme-dark") {
     setTheme("theme-dark");
@@ -85,4 +174,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   seasonalMatrix();
+  chatter();
 });

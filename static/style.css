@@ -3,7 +3,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  outline: 1px dashed black;
+  outline: 0px dashed black;
 }
 
 :root {
@@ -15,7 +15,7 @@
   --deep-navyblue: #011222;
   --rich-black: #020d19;
   --low-white: #f7ede8;
-  --red: #d11d27;
+  --red: #ec5159;
   --bold-color: gold;
 
   --primary-dark-color: #301934;
@@ -28,6 +28,9 @@
   --secondary-color: var(--red);
   --text-color: var(--oil-black);
   --active-color: var(--red);
+  --reverse-primary: var(--primary-dark-color);
+  --reverse-secondary: var(--bold-color);
+  --reverse-text: var(--primary-white-color);
 }
 
 .theme-dark {
@@ -36,6 +39,9 @@
   --secondary-color: var(--bold-color);
   --text-color: var(--primary-white-color);
   --active-color: var(--bold-color);
+  --reverse-primary: var(--primary-white-color);
+  --reverse-secondary: var(--red);
+  --reverse-text: var(--oil-black);
 }
 
 body {
@@ -149,4 +155,85 @@ a.disabled {
   color: var(--secondary-color) !important;
   width: 30px !important;
   height: 30px !important;
+}
+
+.toggle-chat-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  outline: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ref-container {
+  font-size: 14px;
+  color: #333;
+  /* Add more styles as needed */
+}
+
+.ref-container a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.ref-container a:hover {
+  text-decoration: underline;
+}
+
+.chat-input {
+  outline: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  font-family: "Roboto", sans-serif !important;
+}
+.chat-input:focus {
+  border-radius: 0px;
+  border-bottom: 1px solid var(--reverse-primary) !important;
+}
+
+.chat-field .body {
+  padding: 10px;
+  height: 90%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Spacing between messages */
+}
+
+.chatters {
+  padding: 8px;
+  border: none;
+  border-radius: 20px;
+  background-color: #e4dcdc;
+  color: black;
+  width: fit-content;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+/* Align bot messages to the left */
+.chatters.chat-bot {
+  align-self: flex-start;
+  border-radius: 10px 10px 10px 0px;
+}
+/* Align user messages to the right */
+.chatters.chat-user {
+  align-self: flex-end;
+  border-radius: 10px 10px 0 10px;
+}
+
+/* scrollbar css */
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--reverse-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--active-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

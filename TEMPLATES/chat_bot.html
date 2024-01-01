@@ -1,0 +1,49 @@
+<button
+  class="toggle-chat-button btn border-0"
+  type="button"
+  data-bs-toggle="offcanvas"
+  data-bs-target="#chatcanvas"
+  aria-controls="chatcanvas"
+>
+  <img
+    width="48"
+    height="48"
+    src="https://img.icons8.com/color/48/chat--v1.png"
+    alt="chat--v1"
+  />
+</button>
+
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="chatcanvas"
+  aria-labelledby="chatcanvasLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="chatcanvasLabel">Chat with Me!</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body chat-field">
+    <div class="body w-100" id="chat-body"></div>
+    <form
+      class="footer d-flex p-1 gap-2 w-100"
+      method="post"
+      autocomplete="off"
+      id="chat-form"
+    >
+      {% csrf_token %}
+      <input
+        type="text"
+        name="chat-input"
+        id="chat-input"
+        class="form-control chat-input"
+        placeholder="Ask me anything 😉"
+      /><button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </div>
+</div>

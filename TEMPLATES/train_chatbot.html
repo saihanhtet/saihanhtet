@@ -1,0 +1,14 @@
+{%extends 'base.html'%} {% block content %}
+<div
+  class="d-flex flex-column justify-content-center align-items-center w-100 h-100"
+>
+  <h3>Train Chatbot</h3>
+  <form id="train-form">
+    {% csrf_token %}
+    <button class="btn btn-primary" type="button" onclick="train();">
+      Train Chatbot
+    </button>
+  </form>
+</div>
+
+{% endblock content%}
