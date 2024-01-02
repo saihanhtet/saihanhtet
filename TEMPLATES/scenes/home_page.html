@@ -4,8 +4,8 @@
   <div class="card p-3 shadow-sm border-0 my-card-box">
     <div class="welcome-image">
       <img
-        src="{% static 'images/0-02-06-eefbfb1ddfee108b04eb23ac13060a50d90486a11b4a493bb2fe708377a51ddf_718f90da5d096e0a.jpg' %}"
-        alt="Me sitting on the chair with curve desktop"
+        src="{% static data.me.0.img_url %}"
+        alt="{{data.me.0.img_alt}}"
         class="rounded-sm border-1"
       />
     </div>
@@ -35,8 +35,23 @@
       </li>
     </ul>
   </div>
-  <div class="card p-3 shadow-sm border-0">2card</div>
-  <div class="card p-3 shadow-sm border-0">3card</div>
+  <div class="card p-3 shadow-sm border-0 my-card-box second-card">
+    <div class="video_container">
+      <video
+        width="100%"
+        height="auto"
+        playsinline
+        autoplay
+        muted
+        loop
+        controls
+      >
+        <source src="{% static data.me.0.video_url %}" type="video/mp4" />
+      </video>
+    </div>
+    <div class="p-md-5 p-1 text-end">{{data.me.0.git_content}}</div>
+  </div>
+  <div class="card p-3 shadow-sm border-0 my-card-box h-auto">3card</div>
 </div>
 
 {% endblock content%}
