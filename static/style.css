@@ -375,11 +375,9 @@ a.disabled {
   text-align: justify;
 }
 .status-container {
+  padding: 10px;
   gap: 10px;
   flex-wrap: wrap;
-}
-.status-container ul {
-  min-width: 300px;
 }
 .status_img {
   width: 300px;
