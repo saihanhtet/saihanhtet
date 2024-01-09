@@ -4,52 +4,42 @@
   <div class="card p-3 shadow-sm border-0 my-card-box d-block about-container">
     <ul class="nav nav-tabs about-items">
       <li class="nav-item">
-        <button
-          class="nav-link active"
-          type="button"
-          data-bs-target="#carouselAbout"
-          data-bs-slide-to="0"
-          aria-current="true"
-          aria-label="Slide 1"
-        >
+        <a class="nav-link active" data-bs-target="#carouselAbout" data-bs-slide-to="0" aria-current="true"
+          aria-label="Slide 1">
           Story
-        </button>
+        </a>
       </li>
       <li class="nav-item">
-        <button
-          class="nav-link"
-          type="button"
-          data-bs-target="#carouselAbout"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        >
-          Status
-        </button>
+        <a class="nav-link" type="button" data-bs-target="#carouselAbout" data-bs-slide-to="1" aria-label="Slide 2">
+          Information
+        </a>
       </li>
-      <li class="nav-item">
-        <button
-          class="nav-link"
-          type="button"
-          data-bs-target="#carouselAbout"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        >
+      <!-- <li class="nav-item">
+        <a class="nav-link" type="button" data-bs-target="#carouselAbout" data-bs-slide-to="2" aria-label="Slide 3">
           Education
-        </button>
-      </li>
+        </a>
+      </li> -->
     </ul>
     <br />
     <div id="carouselAbout" class="carousel slide">
-      <div class="carousel-inner">
+      <div class="carousel-inner story-board">
         <div class="carousel-item active">
-          <div class="container-fluid">{{data.me.1.content}}</div>
+          <div class="container-fluid">{{ data.me.1.content|safe }}</div>
         </div>
         <div class="carousel-item">
-          <div class="container-fluid">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, ea
-            enim veniam nisi iste aspernatur in maxime, doloribus laborum omnis
-            accusantium quaerat, perferendis error rerum officia quae quasi
-            nostrum facere!
+          <div class="container-fluid status-container d-flex justify-content-evenly align-items-center">
+            <img src="{% static data.status_img %}" class="status_img" alt="" srcset="">
+            <ul class="list-unstyled">
+              <li>Name:&nbsp;{{data.name}}</li>
+              <li>Age:&nbsp;{{data.age}}</li>
+              <li>Email:&nbsp;{{data.email}}</li>
+              <li>Phone number:&nbsp;{{data.phone_number}}</li>
+              <hr>
+              <li>Height:&nbsp;{{data.height}}&nbsp;cm</li>
+              <li>Weight:&nbsp;{{data.weight}}&nbsp;kg</li>
+              <li>Blood Type:&nbsp;{{data.blood}}</li>
+              <li>Personality:&nbsp;{{data.personality}}</li>
+            </ul>
           </div>
         </div>
         <div class="carousel-item">

@@ -1,4 +1,18 @@
 {
+  "name": "Sai Han Htet",
+  "alias_name": "Han Htet San",
+  "nickname": "ivan",
+  "birth_date": 20,
+  "birth_month": 2,
+  "age": 0,
+  "height": 170,
+  "weight": 56.5,
+  "birth_year": 2006,
+  "phone_number": "09400925900",
+  "email": "sai.hanhtetsan@gmail.com",
+  "personality": "Introvert",
+  "blood": "B",
+  "status_img": "images/0-02-06-d349f8364dcebf12acd895ec5da6584396a76220a793b4b5366a5442ca27f1a0_9ab6a0a87110012d.jpg",
   "me": [
     {
       "title": "introduction",
@@ -9,7 +23,11 @@
     },
     {
       "title": "my story",
-      "content": "When I was 13, I started to interest like how the computer works and what are the technologies. At that time, my mom bought me a laptop to learn what I interest and from that days, I have been learning without the ease of a day."
+      "content": "My journey into the field of information technology began when I was 13 years old, with a love for Python - the language that sparked my interest in coding. Because, at the time, I was a big fan of the Iron Man movie, and the Jarvis AI in it caught my interest in this sector. And, my world has been expanded with the many kind of possibilities as I continue to dig deeper and deeper.<br><br>Early on, I started with modest Flask projects, went through the web development world, and enjoyed the success of delivering my websites. Plus with each project, my abilities are improved, and my passion for creating digital places grew day by day.<br><br>At the age of 16, during a wave of academic challenges, I emerged with shining victories in my IGCSE, securing two A grades in Physics and Computer Science. However, shortages of time caused a stumble in other subjects. But, it made me overcome the most challenges.<br><br>In 2023, I plotted a new road by enrolling in the Level 3 Foundation Diploma course in IT Management, intending to obtain a Bachelor's degree in Software Engineering. Despite the scholastic challenges, my thirst for knowledge is still remained.<br><br>Moreover in my spare time, I immersed myself in a variety of languages and technologies such as Java, JS, ReactJS, and Python for Machine Learning and they became the foundation of my learning experience.<br><br>Now at the age of 18, I find myself at the crossroads of innovation and advancement. My desire to improve is still never-ending; each of my project serves as a canvas for polishing talents, and each difficulty presents an opportunity to innovate myself even more. <br><br>To end this story, with the passion of a lifelong learner, I will surely march forward, embracing the ever-changing world of technology and striving for mastery with every keyboard and line of code."
+    },
+    {
+      "title": "marquee",
+      "content": "Hello everyone! Welcome from my personal website. You can see my latest post in my instragram \u2764\ufe0f"
     }
   ]
 }

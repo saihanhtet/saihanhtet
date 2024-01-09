@@ -1,6 +1,7 @@
 # Import your train_and_save_model function
 from django.shortcuts import render, HttpResponse
 import json
+from datetime import datetime
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import JsonResponse, HttpResponseNotFound
@@ -16,6 +17,10 @@ def fetch_data():
     try:
         with open(file_path, 'r') as file:
             data = json.load(file)
+            birth_year = data['birth_year']
+            today = datetime.today()
+            age = today.year - birth_year
+            data['age'] = age
             return data
     except FileNotFoundError:
         return {"msg": "File not found", "status": status.HTTP_404_NOT_FOUND}
@@ -23,8 +28,16 @@ def fetch_data():
         return {"msg": "Error parsing JSON", "status": status.HTTP_500_INTERNAL_SERVER_ERROR}
 
 
+def fetch_data_api(request):
+    data = fetch_data()
+    response = JsonResponse(data, safe=False)
+    response['Content-Type'] = 'application/json; charset=utf-8'
+    return response
+
+
 def index(request):
-    context = {'data': fetch_data()}
+    data = fetch_data()
+    context = {'data': data}
     return render(request, template_name="scenes/home_page.html", context=context)
 
 

@@ -66,6 +66,9 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
 }
+.bg-transparent {
+  background-color: transparent !important;
+}
 
 .card {
   background-color: var(--navbar-color);
@@ -112,6 +115,7 @@ body {
 
 .nav-link {
   color: var(--text-color);
+  cursor: pointer !important;
 }
 
 .navbar a span {
@@ -256,6 +260,16 @@ a.disabled {
 }
 
 /* My home Page */
+
+.home_page h4 {
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: none;
+  letter-spacing: 1px;
+  font-family: "Kanit", sans-serif;
+  text-transform: capitalize;
+  transition: all 0.3s ease-in-out;
+}
 .my-card-box {
   display: flex;
   flex-direction: column;
@@ -263,11 +277,12 @@ a.disabled {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 110px);
   background-color: var(--navbar-30) !important;
 }
 .second-card {
   height: auto !important;
+  background-color: transparent !important;
 }
 .second-card div:first-child {
   height: auto !important;
@@ -356,6 +371,55 @@ a.disabled {
 .about-items .nav-link:focus {
   outline: 1px solid var(--secondary-color);
 }
+.story-board .container-fluid {
+  text-align: justify;
+}
+.status-container {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.status-container ul {
+  min-width: 300px;
+}
+.status_img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+/* icons list*/
+.lang-list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.icon-card {
+  position: relative;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 300ms ease-in;
+}
+
+.icon-card:hover {
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--secondary-color);
+}
+
+.icon-card svg {
+  width: 100px;
+  height: 100px;
+  size: 100px;
+}
 
 @media (max-width: 768px) {
   .welcome-image {
@@ -396,4 +460,28 @@ a.disabled {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* marquee */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.text {
+  display: inline-block;
+  padding-right: 50%;
+  animation: slide 30s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }

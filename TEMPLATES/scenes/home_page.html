@@ -1,57 +1,107 @@
 {%extends 'base.html'%} {% load static %} {% block content %}
 
-<div class="d-flex flex-column p-3 gap-3">
+<div class="d-flex flex-column p-3 gap-3 home_page">
   <div class="card p-3 shadow-sm border-0 my-card-box">
     <div class="welcome-image">
-      <img
-        src="{% static data.me.0.img_url %}"
-        alt="{{data.me.0.img_alt}}"
-        class="rounded-sm border-1"
-      />
+      <img src="{% static data.me.0.img_url %}" alt="{{data.me.0.img_alt}}" class="rounded-sm border-1" />
     </div>
     <div class="p-md-5 p-1">
       <h4 class="name-header mb-3">S. Han Htet San</h4>
       <p>
         <span id="time-greet">Good morning!</span> Everyone! 😊 I'm
-        <span class="name">Sai Han Htet</span> (<span class="alias-name"
-          >Ivan</span
-        >) , a junior software developer excited about coding adventures and
+        <span class="name">Sai Han Htet</span> (<span class="alias-name">Ivan</span>) , a junior software developer
+        excited about coding adventures and
         creating cool stuff.
       </p>
     </div>
     <ul class="social-list list-unstyled">
       <li>
-        <a href="https://web.facebook.com/hanhtet.ivan"
-          ><i class="bi bi-facebook"></i
-        ></a>
+        <a href="https://web.facebook.com/hanhtet.ivan"><i class="bi bi-facebook"></i></a>
       </li>
       <li>
-        <a href="https://www.instagram.com/hanhtet.ivan/"
-          ><i class="bi bi-instagram"></i
-        ></a>
+        <a href="https://www.instagram.com/hanhtet.ivan/"><i class="bi bi-instagram"></i></a>
       </li>
       <li>
         <a href="https://github.com/saihanhtet"><i class="bi bi-github"></i></a>
       </li>
     </ul>
   </div>
-  <div class="card p-3 shadow-sm border-0 my-card-box second-card">
+  <div class="d-inline-flex justify-content-center align-items-center flex-column">
+    <h4 class="text-wrap text-center">
+      Mainly used Favourite Programming Languages 🥰
+    </h4>
+    <div class="d-flex lang-list gap-3">
+      <div class="icon-card shadow-sm">
+        <svg width="200px" height="200px" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M31.885 16c-8.124 0-7.617 3.523-7.617 3.523l.01 3.65h7.752v1.095H21.197S16 23.678 16 31.876c0 8.196 4.537 7.906 4.537 7.906h2.708v-3.804s-.146-4.537 4.465-4.537h7.688s4.32.07 4.32-4.175v-7.019S40.374 16 31.885 16zm-4.275 2.454c.771 0 1.395.624 1.395 1.395s-.624 1.395-1.395 1.395a1.393 1.393 0 0 1-1.395-1.395c0-.771.624-1.395 1.395-1.395z"
+            fill="url(#a)" />
+          <path
+            d="M32.115 47.833c8.124 0 7.617-3.523 7.617-3.523l-.01-3.65H31.97v-1.095h10.832S48 40.155 48 31.958c0-8.197-4.537-7.906-4.537-7.906h-2.708v3.803s.146 4.537-4.465 4.537h-7.688s-4.32-.07-4.32 4.175v7.019s-.656 4.247 7.833 4.247zm4.275-2.454a1.393 1.393 0 0 1-1.395-1.395c0-.77.624-1.394 1.395-1.394s1.395.623 1.395 1.394c0 .772-.624 1.395-1.395 1.395z"
+            fill="url(#b)" />
+          <defs>
+            <linearGradient id="a" x1="19.075" y1="18.782" x2="34.898" y2="34.658" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#387EB8" />
+              <stop offset="1" stop-color="#366994" />
+            </linearGradient>
+            <linearGradient id="b" x1="28.809" y1="28.882" x2="45.803" y2="45.163" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFE052" />
+              <stop offset="1" stop-color="#FFC331" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="icon-card shadow-sm">
+        <svg width="200px" height="200px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M16.0497 8.44062C22.6378 3.32607 19.2566 0 19.2566 0C19.7598 5.28738 13.813 6.53583 12.2189 10.1692C11.1312 12.6485 12.9638 14.8193 16.0475 17.5554C15.7749 16.9494 15.3544 16.3606 14.9288 15.7645C13.4769 13.7313 11.9645 11.6132 16.0497 8.44062Z"
+            fill="#E76F00" />
+          <path
+            d="M17.1015 18.677C17.1015 18.677 19.0835 17.0779 17.5139 15.3008C12.1931 9.27186 23.3333 6.53583 23.3333 6.53583C16.5317 9.8125 17.5471 11.7574 19.2567 14.1202C21.0871 16.6538 17.1015 18.677 17.1015 18.677Z"
+            fill="#E76F00" />
+          <path
+            d="M22.937 23.4456C29.0423 20.3258 26.2195 17.3278 24.2492 17.7317C23.7662 17.8305 23.5509 17.9162 23.5509 17.9162C23.5509 17.9162 23.7302 17.64 24.0726 17.5204C27.9705 16.1729 30.9682 21.4949 22.8143 23.6028C22.8143 23.6029 22.9088 23.5198 22.937 23.4456Z"
+            fill="#5382A1" />
+          <path
+            d="M10.233 19.4969C6.41312 18.9953 12.3275 17.6139 12.3275 17.6139C12.3275 17.6139 10.0307 17.4616 7.20592 18.8043C3.86577 20.3932 15.4681 21.1158 21.474 19.5625C22.0984 19.1432 22.9614 18.7798 22.9614 18.7798C22.9614 18.7798 20.5037 19.2114 18.0561 19.4145C15.0612 19.6612 11.8459 19.7093 10.233 19.4969Z"
+            fill="#5382A1" />
+          <path
+            d="M11.6864 22.4758C9.55624 22.2592 10.951 21.2439 10.951 21.2439C5.43898 23.0429 14.0178 25.083 21.7199 22.8682C20.9012 22.5844 20.3806 22.0653 20.3806 22.0653C16.6163 22.7781 14.441 22.7553 11.6864 22.4758Z"
+            fill="#5382A1" />
+          <path
+            d="M12.6145 25.6991C10.486 25.4585 11.7295 24.7474 11.7295 24.7474C6.72594 26.1222 14.7729 28.9625 21.1433 26.2777C20.0999 25.8787 19.3528 25.4181 19.3528 25.4181C16.5111 25.9469 15.1931 25.9884 12.6145 25.6991Z"
+            fill="#5382A1" />
+          <path
+            d="M25.9387 27.3388C25.9387 27.3388 26.8589 28.0844 24.9252 28.6612C21.2481 29.7566 9.62093 30.0874 6.39094 28.7049C5.22984 28.2082 7.40723 27.5189 8.09215 27.3742C8.80646 27.2219 9.21466 27.2503 9.21466 27.2503C7.9234 26.3558 0.868489 29.0067 5.63111 29.7659C18.6195 31.8372 29.3077 28.8331 25.9387 27.3388Z"
+            fill="#5382A1" />
+          <path
+            d="M28 28.9679C27.7869 31.6947 18.7877 32.2683 12.9274 31.8994C9.10432 31.6583 8.33812 31.0558 8.32691 31.047C11.9859 31.6402 18.1549 31.7482 23.1568 30.8225C27.5903 30.0016 28 28.9679 28 28.9679Z"
+            fill="#5382A1" />
+        </svg>
+      </div>
+      <div class="icon-card shadow-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="JavaScript" role="img" viewBox="0 0 512 512">
+          <rect width="512" height="512" rx="15%" fill="#f7df1e" />
+          <path
+            d="M324 370c10 17 24 29 47 29c20 0 33-10 33 -24c0-16 -13 -22 -35 -32l-12-5c-35-15 -58 -33 -58 -72c0-36 27 -64 70 -64c31 0 53 11 68 39l-37 24c-8-15 -17 -21 -31 -21c-14 0-23 9 -23 21c0 14 9 20 30 29l12 5c41 18 64 35 64 76c0 43-34 67 -80 67c-45 0-74 -21 -88 -49zm-170 4c8 13 14 25 31 25c16 0 26-6 26 -30V203h48v164c0 50-29 72 -72 72c-39 0-61 -20 -72 -44z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="card p-3 shadow-sm border-0 my-card-box second-card bg-transparent">
     <div class="video_container">
-      <video
-        width="100%"
-        height="auto"
-        playsinline
-        autoplay
-        muted
-        loop
-        controls
-      >
+      <video width="100%" height="auto" playsinline autoplay muted loop controls>
         <source src="{% static data.me.0.video_url %}" type="video/mp4" />
+        <track label="English" kind="captions" srclang="en" src="" default />
       </video>
     </div>
-    <div class="p-md-5 p-1 text-end">{{data.me.0.git_content}}</div>
+    <div class="p-md-5 p-1 text-md-end text-lg-end text-xl-end">
+      <h4 class="text-wrap text-center text-md-end text-lg-end text-xl-end mb-4">
+        Github
+      </h4>
+      {{data.me.0.git_content}}
+    </div>
   </div>
-  <div class="card p-3 shadow-sm border-0 my-card-box h-auto">3card</div>
 </div>
 
 {% endblock content%}
