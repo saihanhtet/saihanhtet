@@ -1,0 +1,148 @@
+.home-container {
+  row-gap: 7rem;
+}
+
+.content {
+  grid-gap: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  -webkit-column-gap: 2rem;
+  column-gap: 2rem;
+  grid-template-columns: repeat(2, 1fr) 116px;
+  padding: 0;
+}
+
+.intro-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.intro-content h4 {
+  font-size: 2.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.intro-content p {
+  color: #757575;
+}
+
+.intro-content .subtitle {
+  font-size: 1rem;
+  position: relative;
+  padding-left: 5.4rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.intro-content .subtitle:before {
+  background-color: var(--text-color);
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  width: 70px;
+}
+
+.pic-content {
+  -webkit-animation: profile_animate 10s ease-in-out 0s infinite;
+  animation: profile_animate 10s ease-in-out 0s infinite;
+  background: url(/src/assets/MyProfile.jpg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border-radius: 25% 75% 44% 56% / 29% 20% 80% 71%;
+  box-shadow: inset 0 0 0 9px hsla(226, 100%, 60%, 0.3);
+  height: 300px;
+  justify-self: center;
+  width: 300px;
+}
+
+.social-content {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.social-icon i {
+  font-size: 19px;
+  cursor: pointer;
+  transition: 3s;
+}
+
+.social-icon i:hover {
+  color: black;
+}
+
+@media screen and (max-width: 992px) {
+  .home-container {
+    padding: 0;
+    margin: 0;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .content {
+    -webkit-column-gap: 1.25rem;
+    column-gap: 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 1.5rem;
+  }
+
+  .pic-content {
+    height: 200px;
+    width: 200px;
+    justify-self: center;
+    order: 1;
+  }
+
+  .social-content {
+    justify-self: center;
+    order: 2;
+    width: auto;
+    margin: 0;
+  }
+
+  .intro-content {
+    order: 3;
+    width: 100%;
+    grid-column: span 2;
+  }
+}
+@media screen and (max-width: 768px) {
+  .home-container {
+    margin: auto;
+    padding: auto;
+  }
+  .content {
+    grid-template-columns: 3ft 0.5fr;
+    padding: 0;
+  }
+}
+
+@keyframes profile_animate {
+  0% {
+    border-radius: 25% 75% 44% 56% / 29% 20% 80% 71%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+  75% {
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 25% 75% 44% 56% / 29% 20% 80% 71%;
+  }
+}

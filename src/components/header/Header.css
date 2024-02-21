@@ -1,0 +1,164 @@
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  position: -webkit-sticky;
+  background-color: var(--navbar-color) !important;
+  transition: background-color 1s ease;
+}
+
+.navbar-container {
+  padding: 0 10px;
+  margin: auto;
+  max-width: 1024px;
+  height: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: inherit;
+
+  color: var(--text-color) !important;
+  background-color: transparent !important;
+  font-family: "Kanit", sans-serif;
+  transition: background-color 1s ease;
+}
+
+.navbar-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  color: var(--text-color) !important;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  pointer-events: auto;
+  text-decoration: none !important;
+}
+
+.navbar-brand span:first-child {
+  font-weight: 500;
+  font-size: 25px !important;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.navbar-hide ul {
+  display: none;
+}
+.hide-toggler {
+  display: none;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 0px;
+  text-decoration: none;
+
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: normal;
+  text-transform: capitalize;
+
+  pointer-events: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link.active {
+  color: var(--active-color) !important;
+  font-weight: 500;
+}
+
+.nav-toggler {
+  display: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.icon-box i {
+  font-size: 17px;
+  display: none;
+}
+/* on small screens */
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    justify-content: space-evenly;
+    top: initial;
+    bottom: -100%;
+  }
+  .navbar-menu {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--reverse-primary);
+    padding: 2rem 1.5rem 2rem;
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 1.5rem 1.5rem 0 0;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .navbar-menu .nav-link {
+    color: aliceblue !important;
+    width: 100%;
+    height: 100%;
+  }
+  .icon-box i {
+    display: block;
+  }
+  .nav-item:nth-child(4) .nav-link > span {
+    display: none; /* Hide the original text */
+  }
+
+  .nav-item:nth-child(4) .nav-link:after {
+    content: "Edu"; /* Insert new text */
+  }
+
+  .nav-link.active {
+    color: var(--active-color) !important;
+    font-weight: 600;
+  }
+  .navbar-show {
+    bottom: 0;
+  }
+
+  .nav-toggler {
+    display: block;
+  }
+}
+
+/* Hide the nav-toggler on screens larger than 768px */
+@media screen and (min-width: 769px) {
+  .nav-toggler {
+    display: none;
+  }
+}
