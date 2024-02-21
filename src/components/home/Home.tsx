@@ -1,7 +1,7 @@
 import "./Home.css";
 const Home = () => {
   return (
-    <section className="container-xl home-session">
+    <section className="container-xl home-session" id="home">
       <div className="home-container">
         <div className="content">
           <div className="pic-content"></div>

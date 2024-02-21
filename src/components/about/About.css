@@ -1,0 +1,80 @@
+.about-container {
+  row-gap: 7em;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-container h4 {
+  font-size: 1.5rem;
+}
+.about-content {
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.cards-box {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about-card {
+  background-color: var(--navbar-30);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  text-align: center;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  width: 140px;
+  max-width: 140px;
+}
+
+.about-card.info-card {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 700px;
+}
+
+.about-card i {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.btn i {
+  margin: 0;
+}
+
+.about-card .title {
+  font-family: "Kanit", sans-serif;
+  font-size: 18px;
+  color: black;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.about-card .sub-title {
+  font-size: 13px;
+}
+@media screen and (max-width: 768px) {
+  .about-container {
+    padding-top: 3rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cards-box {
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .cards-box {
+    gap: 5px;
+  }
+}

@@ -93,7 +93,6 @@ body {
 .container-xl {
   max-width: 1140px;
   padding: 8rem 2rem;
-  background-color: var(--navbar-color);
   border-radius: 8px;
 }
 
