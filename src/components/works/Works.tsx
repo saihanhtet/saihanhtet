@@ -1,6 +1,21 @@
 import "./Works.css";
 
 const Works = () => {
+  const data = [
+    {
+      title: "InkLearn-Hub",
+      content:
+        "A student management system written in django and electron together.",
+      image: "src/assets/ink-drop.jpg",
+    },
+    {
+      title: "NEW META",
+      content:
+        "A student management system written in django and electron together.",
+      image: "src/assets/ink-drop.jpg",
+    },
+  ];
+
   return (
     <section className="container-xl work-session bg-transparent" id="projects">
       <div className="sheet-container">
@@ -8,7 +23,27 @@ const Works = () => {
           <h4 className="sheet-title">My Works</h4>
           <small>2019 - Present</small>
         </div>
-        <div className="sheet-content">
+        <div className="work-content">
+          <aside className="carousel">
+            <div className="carousel-wrapper">
+              {data.map((item, idx) => (
+                <div key={idx} className={`item`} id={`slide-${idx}`}>
+                  <div className="image-container">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      width="418"
+                      height="418"
+                    />
+                    <div className="overlay">
+                      <p>{item.title}</p>
+                      <p>{item.content}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </aside>
           <div className="carousel-container">
             <div className="carousel-header">
               <img
@@ -19,66 +54,7 @@ const Works = () => {
               />
               <span>S. Han Htet San</span>
             </div>
-            <div className="carousel-content">
-              <div className="wrapper">
-                <div className="item" id="slide-0">
-                  <img
-                    src="https://assets.codepen.io/108082/jake-and-fin-1.jpg"
-                    alt=""
-                    width="418"
-                    height="418"
-                  />
-                </div>
-                <div className="item" id="slide-1">
-                  <img
-                    src="https://assets.codepen.io/108082/jake-and-fin-2.jpg"
-                    alt=""
-                    width="418"
-                    height="418"
-                  />
-                </div>
-                <div className="item" id="slide-2">
-                  <img
-                    src="https://assets.codepen.io/108082/jake-and-fin-3.jpg"
-                    alt=""
-                    width="418"
-                    height="418"
-                  />
-                </div>
-                <div className="item" id="slide-3">
-                  <img
-                    src="https://assets.codepen.io/108082/jake-and-fin-4.jpg"
-                    alt=""
-                    width="418"
-                    height="418"
-                  />
-                </div>
-                <div className="item" id="slide-4">
-                  <img
-                    src="https://assets.codepen.io/108082/jake-and-fin-5.jpg"
-                    alt=""
-                    width="418"
-                    height="418"
-                  />
-                </div>
-                <div className="item" id="slide-5">
-                  <img
-                    src="https://assets.codepen.io/108082/jake-and-fin-6.jpg"
-                    alt=""
-                    width="418"
-                    height="418"
-                  />
-                </div>
-                <div className="item" id="slide-6">
-                  <img
-                    src="https://assets.codepen.io/108082/jake-and-fin-7.jpg"
-                    alt=""
-                    width="418"
-                    height="418"
-                  />
-                </div>
-              </div>
-            </div>
+            <div className="carousel-content"></div>
             <footer className="carousel-footer">
               <div className="left">
                 <svg

@@ -45,7 +45,10 @@ const About = () => {
             driven by a passion for lifelong learning.
           </p>
         </div>
-        <a href="" className="btn">
+        <a
+          href="https://github.com/saihanhtet/saihanhtet/raw/main/src/assets/ResumeForm.docx"
+          className="btn"
+        >
           <span>Download Resume</span>
           <i className="fa-regular fa-file"></i>
         </a>
