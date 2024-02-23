@@ -3,7 +3,7 @@ const About = () => {
   return (
     <section className="container-xl bg-transparent" id="about">
       <div className="about-container">
-        <div className="about-title d-flex flex-column align-items-center justify-content-center">
+        <div className="about-title sheet-header">
           <h4>About Me</h4>
           <small>My Information</small>
         </div>

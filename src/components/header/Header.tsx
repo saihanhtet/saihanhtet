@@ -6,7 +6,7 @@ const Header = () => {
   const [activeNavItem, setActiveNavItem] = useState("Home");
 
   const navItems = [
-    { name: "Home", href: "index.html", icon: "fa-house" },
+    { name: "Home", href: "#home", icon: "fa-house" },
     { name: "About", href: "#about", icon: "fa-user" },
     { name: "Skills", href: "#skill", icon: "fa-bolt" },
     { name: "Education", href: "#education", icon: "fa-award" },

@@ -4,6 +4,8 @@ import "./App.css";
 import Home from "./components/home/Home";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
+import Skill from "./components/skill/Skill";
+import Works from "./components/works/Works";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <main className="pages">
         <Home />
         <About />
+        <Skill />
+        <Works />
         <Contact />
       </main>
     </>

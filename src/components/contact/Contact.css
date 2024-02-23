@@ -1,14 +1,6 @@
 .contact-session {
   padding: 6rem 2rem;
 }
-.contact-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Poppins", sans-serif;
-  flex-direction: column;
-  width: 100%;
-}
 
 .contact-header {
   margin-bottom: 2rem;
@@ -20,6 +12,7 @@
 .contact-header h4 {
   font-size: 1.5rem;
 }
+
 .contact-body {
   display: flex;
   align-items: start;
@@ -66,6 +59,12 @@
   border-radius: 0.75rem;
   padding: 1.5rem;
   border: 1px solid #ccc;
+}
+.left-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 textarea.custom-input {

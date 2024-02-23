@@ -1,0 +1,97 @@
+.work-session {
+  padding: 6rem 2rem;
+  overflow: hidden;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid var(--text-30);
+  border-radius: 9px;
+}
+.carousel-header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+}
+.carousel-header img {
+  border-radius: 50%;
+  border: 1px solid var(--primary-color);
+}
+.carousel-header span {
+  font-size: large;
+  font-weight: 500;
+}
+.carousel-content {
+  padding: 10px;
+  text-align: justify;
+  border-top: 1px solid var(--text-30);
+  border-bottom: 1px solid var(--text-30);
+  position: relative;
+  max-height: 438px;
+  max-width: 438px;
+  width: 450px;
+}
+.carousel-content .wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 350px;
+}
+
+.item {
+  position: absolute;
+  max-width: 418px;
+  height: 100%;
+  opacity: 100;
+  will-change: transform, opacity;
+}
+.item img {
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+}
+.carousel-footer {
+  padding: 10px;
+  max-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.carousel-footer .left,
+.carousel-footer .right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.insta-icon {
+  cursor: pointer;
+  font-size: clamp(1.09rem, 1.42vw + 0.74rem, 1.88rem);
+  min-width: 24px;
+  min-height: 24px;
+  outline: 1px;
+  stroke-width: 1.4;
+  stroke: #333;
+}
+
+.insta-icon:not(:first-child) {
+  stroke-width: 2px;
+}
+
+.insta-icon.saved {
+  stroke-width: 2px;
+}
+
+@media screen and (max-width: 998px) {
+  .carousel-content {
+    width: 90vw;
+  }
+  .carousel-content .wrapper {
+    height: 50vh;
+    min-height: 50%;
+  }
+}

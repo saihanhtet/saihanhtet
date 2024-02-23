@@ -1,6 +1,9 @@
 .home-container {
   row-gap: 7rem;
 }
+.home-session {
+  padding: 10rem 2rem;
+}
 
 .content {
   grid-gap: 1.5rem;
@@ -88,6 +91,9 @@
     margin: 0;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+  }
+  .home-session {
+    padding: 6rem 2rem;
   }
 
   .content {

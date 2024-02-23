@@ -14,8 +14,8 @@ const Home = () => {
               I'm Sai Han Htet (Ivan) , a junior software developer excited
               about coding adventures and creating cool stuff.
             </p>
-            <a href="#say" className="btn">
-              <span> Say Hi</span>
+            <a href="#contact" className="btn">
+              <span>Say Hi</span>
               <i className="fa-solid fa-paper-plane"></i>
             </a>
           </div>

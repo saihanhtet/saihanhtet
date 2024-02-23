@@ -6,10 +6,10 @@ const Contact = () => {
       className="container-xl contact-session bg-transparent"
       id="contact"
     >
-      <div className="contact-container">
-        <div className="contact-header">
-          <h4>Stay in Touch</h4>
-          <span>Contact me</span>
+      <div className="sheet-container">
+        <div className="sheet-header">
+          <h4 className="sheet-title">Stay in Touch</h4>
+          <small>Contact me</small>
         </div>
         <div className="contact-body">
           <form
@@ -53,7 +53,7 @@ const Contact = () => {
             </div>
             <button type="submit" className="btn border-none">
               <span>Send Me</span>
-              <i className="fa-regular fa-file"></i>
+              <i className="fa-regular fa-papers"></i>
             </button>
           </form>
           <div className="left-body">
