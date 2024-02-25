@@ -1,9 +1,16 @@
+import { useEffect, useRef, useState } from "react";
 import "./Works.css";
 
 const Works = () => {
   const data = [
     {
       title: "InkLearn-Hub",
+      content:
+        "A student management system written in django and electron together.",
+      image: "src/assets/ink-drop.jpg",
+    },
+    {
+      title: "InkLearn-Hub2",
       content:
         "A student management system written in django and electron together.",
       image: "src/assets/ink-drop.jpg",
@@ -16,24 +23,96 @@ const Works = () => {
     },
   ];
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % data.length);
+    }, 5000); // Change slide every 5 seconds
+    return () => clearInterval(interval);
+  }, [data.length]);
+
+  const generateKeyframes = (numberOfSlides: number) => {
+    // const slideDuration = 27; // Total duration of the animation in seconds
+    const slideChangeTiming = 3; // Timing for slide change
+    // const slideDelayFraction = slideDuration / numberOfSlides;
+    const slideStepsFraction = 100 / numberOfSlides;
+    // const SlideEasing = `cubic-bezier(0.37, 0, 0.63, 1);`;
+
+    let keyframes = ``;
+
+    keyframes += `
+      
+      @keyframes carousel-animate {
+        0% {
+          visibility: hidden;
+          opacity: 0;
+          transform: translateX(200%) scale(0.7);
+        }
+        ${slideChangeTiming}%,
+        ${slideStepsFraction}% {
+          visibility: visible;
+          opacity: 0.8;
+          transform: translateX(100%) scale(0.9);
+        }
+        ${slideStepsFraction + slideChangeTiming}%,
+        ${slideStepsFraction * 2}% {
+          visibility: visible;
+          opacity: 1;
+          transform: translateX(0) scale(1);
+        }
+        ${slideStepsFraction * 2 + slideChangeTiming}% ,
+        ${slideStepsFraction * 3}{
+          visibility: visible;
+          opacity: 0.8;
+          transform: translateX(-100%) scale(0.9);
+        }
+        ${slideStepsFraction * 3 + slideChangeTiming}%{
+          visibility: visible;
+          opacity: 0;
+          transform: translateX(-200%) scale(0.9);
+        }
+      }
+    `;
+
+    return keyframes;
+  };
+
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.textContent = generateKeyframes(data.length);
+    document.head.appendChild(style);
+  }, [currentSlide, data.length]);
+
   return (
     <section className="container-xl work-session bg-transparent" id="projects">
-      <div className="sheet-container">
-        <div className="sheet-header">
+      <div className="sheet-container m-0 p-0">
+        <div className="sheet-header mt-0">
           <h4 className="sheet-title">My Works</h4>
           <small>2019 - Present</small>
         </div>
         <div className="work-content">
-          <aside className="carousel">
+          <aside className="carousel" ref={carouselRef}>
             <div className="carousel-wrapper">
               {data.map((item, idx) => (
-                <div key={idx} className={`item`} id={`slide-${idx}`}>
+                <div
+                  key={idx}
+                  className={`item`}
+                  id={`slide-${idx}`}
+                  style={{
+                    animationDelay: `${9 * (idx - currentSlide)}s`,
+                    ...(idx === data.length - 1 && {
+                      animationDelay: `${-9 * 2}s`,
+                    }), // Example additional style
+                  }}
+                >
                   <div className="image-container">
                     <img
                       src={item.image}
                       alt={item.title}
                       width="418"
-                      height="418"
+                      height="380"
                     />
                     <div className="overlay">
                       <p>{item.title}</p>

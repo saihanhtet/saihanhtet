@@ -12,3 +12,99 @@
 .skill-header h4 {
   font-size: 1.5rem;
 }
+
+.skill-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.skills {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skills .outer {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  padding: 20px;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px #ffffff;
+}
+
+.skills .inner {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 6px -1px #ffffff9c, -0.5px -0.5px 0px #ffffff,
+    0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#number,
+#title {
+  font-weight: 600;
+  color: #555;
+}
+
+circle {
+  fill: none;
+  stroke: url(#GradientColor);
+  stroke-width: 20px;
+  stroke-dasharray: 472;
+  stroke-dashoffset: 472;
+}
+.circle-1,
+.circle-4 {
+  animation: offset-animation0 2s linear forwards;
+}
+.circle-2 {
+  animation: offset-animation1 2s linear forwards;
+}
+.circle-3 {
+  animation: offset-animation2 2s linear forwards;
+}
+.circle-5 {
+  animation: offset-animation3 2s linear forwards;
+}
+
+.skill-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes offset-animation0 {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes offset-animation1 {
+  100% {
+    stroke-dashoffset: 188.8;
+  }
+}
+
+@keyframes offset-animation2 {
+  100% {
+    stroke-dashoffset: 118;
+  }
+}
+@keyframes offset-animation3 {
+  100% {
+    stroke-dashoffset: 70.8;
+  }
+}
