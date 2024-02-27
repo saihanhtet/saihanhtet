@@ -1,6 +1,37 @@
 import "./Contact.css";
+import { useRef } from "react";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
+  const form = useRef<HTMLFormElement | null>(null);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (form.current) {
+      emailjs
+        .sendForm(
+          "service_dq5l9at",
+          "template_m8jdwp7",
+          form.current,
+          "PCBhIP4lY0EsFBR7A"
+        )
+        .then(
+          (result) => {
+            console.log("Email sent successfully:", result.text);
+            resetForm();
+          },
+          (error) => {
+            console.error("Error sending email:", error.text);
+          }
+        );
+    }
+  };
+
+  const resetForm = () => {
+    if (form.current) {
+      form.current.reset();
+    }
+  };
   return (
     <section
       className="container-xl contact-session bg-transparent"
@@ -13,11 +44,12 @@ const Contact = () => {
         </div>
         <div className="contact-body">
           <form
-            action=""
-            method="post"
+            ref={form}
+            onSubmit={handleSubmit}
             className="custom-form"
             autoComplete="off"
           >
+            <input type="hidden" name="to_name" value={"Saihanhtet"} />
             <div className="form-group">
               <label htmlFor="name" className="custom-tag">
                 Name

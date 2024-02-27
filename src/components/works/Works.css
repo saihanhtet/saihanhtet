@@ -7,7 +7,55 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+.work-card {
+  background-color: #fff;
+  border: 0;
+  box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
+  width: 300px;
+  position: relative;
+  cursor: pointer;
+}
+
+.work-card img {
+  width: 100%;
+  border: 1px solid #ccc;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+.work-card .info {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: rgba(43, 43, 43, 0.6);
+  color: white;
+}
+.work-card .info b {
+  font-weight: 600;
+}
+.work-card .info p {
+  font-size: 14px;
+}
+.work-card .info .btn {
+  padding: 5px 10px;
+  background-color: lightblue;
+  color: black;
+  margin-bottom: 0;
+  margin: 10px;
 }
 
 @media screen and (max-width: 998px) {

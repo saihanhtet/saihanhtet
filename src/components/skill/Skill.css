@@ -1,7 +1,12 @@
 .skill-session {
   padding: 6rem 2rem;
 }
-
+.skill-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center !important;
+}
 .skill-header {
   margin-bottom: 2rem;
   display: flex;
@@ -19,6 +24,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 2em;
+  max-width: 800px;
 }
 
 .skills {

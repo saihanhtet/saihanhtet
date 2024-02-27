@@ -1,0 +1,88 @@
+.edu-content {
+  max-width: 768px;
+}
+.education-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edu-content .tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 20px;
+}
+
+.education-button {
+  font-size: 18px;
+  font-weight: normal;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: #333;
+  font-weight: lighter;
+}
+
+.education-button:hover {
+  color: var(--primary-dark-color);
+}
+
+.education-button span {
+  font-weight: normal;
+}
+.education-button i {
+  font-size: 1.5rem;
+}
+
+.education-active {
+  color: var(--primary-dark-color);
+  font-weight: bolder;
+}
+.education-content {
+  display: none;
+}
+.education-content-active {
+  display: block;
+}
+
+.education-data {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  column-gap: 1.5rem;
+}
+
+.education-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.education-subtitle {
+  display: inline-block;
+  font-size: 15px;
+  margin-bottom: 1rem;
+}
+
+.education-rounder {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+}
+.education-line {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background-color: var(--text-color);
+  transform: translate(6px, -7px);
+}
+
+@media screen and (max-width: 992px) {
+  .education-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
