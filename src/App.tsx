@@ -7,6 +7,7 @@ import Contact from "./components/contact/Contact";
 import Skill from "./components/skill/Skill";
 import Works from "./components/works/Works";
 import Education from "./components/education/Education";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Works />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }
