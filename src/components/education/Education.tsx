@@ -2,23 +2,6 @@ import { useState } from "react";
 import "./Education.css";
 
 const Education = () => {
-  const data = [
-    {
-      title: "Software Engineering",
-      subtitle: "Lithan Academy / Educlaas",
-      calendar: "2023-Present",
-    },
-    {
-      title: "ITPEC Fundamental Information Technology Engineer",
-      subtitle: "ITPEC FE Exam",
-      calendar: "2022-2023",
-    },
-    {
-      title: "High School / IGCSE",
-      subtitle: "Light English Class For All",
-      calendar: "2022-2021",
-    },
-  ];
   const tabs = [
     { id: 1, icon: "fa-solid fa-graduation-cap", label: "Education" },
     { id: 2, icon: "fa-solid fa-briefcase", label: "Experience" },
