@@ -46,7 +46,7 @@ const About = () => {
           </p>
         </div>
         <a
-          href="https://github.com/saihanhtet/saihanhtet/raw/main/src/assets/ResumeForm.docx"
+          href="https://github.com/saihanhtet/saihanhtet/raw/main/src/assets/Sai%20han%20Htet%20Resume.pdf"
           className="btn"
         >
           <span>Download Resume</span>
