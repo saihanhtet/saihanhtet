@@ -17,7 +17,7 @@ const Education = () => {
     <section className="container-xl education-session" id="education">
       <div className="sheet-container education-container">
         <div className="sheet-header">
-          <h4>Education</h4>
+          <h4 className="sheet-title">Education</h4>
           <small>My Journey</small>
         </div>
 
