@@ -7,6 +7,58 @@ const Education = () => {
     { id: 2, icon: "fa-solid fa-briefcase", label: "Experience" },
   ];
 
+  const educationData = [
+    {
+      id: 1,
+      title: "High School / IGCSE",
+      subtitle: "Light English Class For All",
+      start: "2021",
+      end: "2022",
+      clickable: true,
+      link: "",
+    },
+    {
+      id: 2,
+      title: "ITPEC Fundamental Information Technology Engineer",
+      subtitle: "ITPEC FE Exam",
+      start: "2022",
+      end: "2023",
+      clickable: true,
+      link: "",
+    },
+    {
+      id: 3,
+      title:
+        "International Level 3 Foundation Diploma in Information Technology",
+      subtitle: "Pearson BTEC",
+      start: "2023",
+      end: "2024",
+      clickable: true,
+      link: "",
+    },
+    {
+      id: 4,
+      title: "Software Engineering",
+      subtitle: "Lithan Academy / Educlaas",
+      start: "2024",
+      end: "Present",
+      clickable: false,
+      link: "",
+    },
+  ].reverse();
+
+  const currentYear = new Date().getFullYear();
+
+  const workExperience = [
+    {
+      id: 1,
+      title: "Coming Soon",
+      subtitle: "Your company",
+      start: currentYear,
+      end: currentYear + 50,
+    },
+  ].reverse();
+
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (index: number) => {
@@ -36,78 +88,97 @@ const Education = () => {
               </div>
             ))}
           </div>
-
           <div
             className={`education-content ${
               toggleState === 1 ? "education-content-active" : ""
             }`}
           >
-            <div className="education-data">
-              <div>
-                <h3 className="education-title">Software Engineering</h3>
-                <span className="education-subtitle">
-                  Lithan Academy / Educlaas
-                </span>
-                <div className="education-calendar">
-                  <i className="uil uil-calendar-alt"></i> 2023-Present
-                </div>
+            {educationData.map((data, index) => (
+              <div className="education-data" key={data.id}>
+                {index % 2 === 0 ? (
+                  <>
+                    <div className="text-end">
+                      <div className="education-calendar">
+                        <i className="uil uil-calendar-alt"></i> {data.start}-
+                        {data.end}
+                      </div>
+                      <h3 className="education-title">{data.title}</h3>
+                      <span className="education-subtitle">
+                        {data.subtitle}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="education-rounder"></span>
+                      <div className="education-line"></div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div></div>
+                    <div>
+                      <span className="education-rounder"></span>
+                      <div className="education-line"></div>
+                    </div>
+                    <div>
+                      <div className="education-calendar">
+                        <i className="uil uil-calendar-alt"></i> {data.start}-
+                        {data.end}
+                      </div>
+                      <h3 className="education-title">{data.title}</h3>
+                      <span className="education-subtitle">
+                        {data.subtitle}
+                      </span>
+                    </div>
+                  </>
+                )}
               </div>
-              <div>
-                <span className="education-rounder"></span>
-                <div className="education-line"></div>
-              </div>
-            </div>
-            <div className="education-data">
-              <div></div>
-              <div>
-                <span className="education-rounder"></span>
-                <div className="education-line"></div>
-              </div>
-              <div>
-                <h3 className="education-title">
-                  ITPEC Fundamental Information Technology Engineer
-                </h3>
-                <span className="education-subtitle">ITPEC FE Exam</span>
-                <div className="education-calendar">
-                  <i className="uil uil-calendar-alt"></i> 2022-2023
-                </div>
-              </div>
-            </div>
-            <div className="education-data">
-              <div>
-                <h3 className="education-title">High School / IGCSE</h3>
-                <span className="education-subtitle">
-                  Light English Class For All
-                </span>
-                <div className="education-calendar">
-                  <i className="uil uil-calendar-alt"></i> 2022-2021
-                </div>
-              </div>
-              <div>
-                <span className="education-rounder"></span>
-                <div className="education-line"></div>
-              </div>
-            </div>
+            ))}
           </div>
-
           <div
             className={`education-content ${
               toggleState === 2 ? "education-content-active" : ""
             }`}
           >
-            <div className="education-data">
-              <div>
-                <h3 className="education-title">Coming Soon</h3>
-                <span className="education-subtitle">Your company</span>
-                <div className="education-calendar">
-                  <i className="uil uil-calendar-alt"></i> Present - Undefined
-                </div>
+            {workExperience.map((data, index) => (
+              <div className="education-data" key={data.id}>
+                {index % 2 === 0 ? (
+                  <>
+                    <div className="text-end">
+                      <div className="education-calendar">
+                        <i className="uil uil-calendar-alt"></i> {data.start}-
+                        {data.end}
+                      </div>
+                      <h3 className="education-title">{data.title}</h3>
+                      <span className="education-subtitle">
+                        {data.subtitle}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="education-rounder"></span>
+                      <div className="education-line"></div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div></div>
+                    <div>
+                      <span className="education-rounder"></span>
+                      <div className="education-line"></div>
+                    </div>
+                    <div>
+                      <div className="education-calendar">
+                        <i className="uil uil-calendar-alt"></i> {data.start}-
+                        {data.end}
+                      </div>
+                      <h3 className="education-title">{data.title}</h3>
+                      <span className="education-subtitle">
+                        {data.subtitle}
+                      </span>
+                    </div>
+                  </>
+                )}
               </div>
-              <div>
-                <span className="education-rounder"></span>
-                <div className="education-line"></div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

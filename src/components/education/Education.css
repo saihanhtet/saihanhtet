@@ -9,6 +9,7 @@
 .edu-content .tabs {
   display: flex;
   justify-content: center;
+  flex-direction: row-re;
   margin-bottom: 2rem;
   gap: 20px;
 }
@@ -47,11 +48,18 @@
 .education-content-active {
   display: block;
 }
-
+.text-end {
+  text-align: end !important;
+}
 .education-data {
   display: grid;
   grid-template-columns: 1fr max-content 1fr;
   column-gap: 1.5rem;
+}
+
+.education-data:nth-child(2) {
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-areas: "content line rounder";
 }
 
 .education-title {
