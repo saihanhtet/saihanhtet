@@ -4,7 +4,7 @@ import "./Education.css";
 const Education = () => {
   const tabs = [
     { id: 1, icon: "fa-solid fa-graduation-cap", label: "Education" },
-    { id: 2, icon: "fa-solid fa-briefcase", label: "Experience" },
+    // { id: 2, icon: "fa-solid fa-briefcase", label: "Experience" },
   ];
 
   const educationData = [
