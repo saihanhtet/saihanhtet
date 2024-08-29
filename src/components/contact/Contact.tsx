@@ -90,7 +90,6 @@ const Contact = () => {
           </form>
           <div className="left-body">
             <h4>Contact with Social Media</h4>
-            <br />
             <div className="main">
               <div className="up">
                 <a
@@ -168,6 +167,15 @@ const Contact = () => {
                   </svg>
                 </a>
               </div>
+            </div>
+            <br />
+            <div className="text-left">
+              <p>
+                <b>Email:</b> sai.hanhtetsan@gmail.com
+              </p>
+              <p>
+                <b>Phone Number:</b> +66842054515
+              </p>
             </div>
           </div>
         </div>

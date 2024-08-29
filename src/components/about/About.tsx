@@ -21,11 +21,11 @@ const About = () => {
                 <div className="sub-title">+7 Projects</div>
               </div>
             </a>
-            <div className="about-card">
+            {/* <div className="about-card">
               <i className="fa-solid fa-fire"></i>
               <div className="title">Experience</div>
               <div className="sub-title">+3 Years</div>
-            </div>
+            </div> */}
             <div className="about-card">
               <i className="fa-solid fa-headphones"></i>
               <div className="title">Learning</div>
