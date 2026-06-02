@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
+import { ArrowUpRight01Icon } from "hugeicons-react";
 import "./Works.css";
 
 interface Work {
@@ -48,7 +49,7 @@ const Works = () => {
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  View on GitHub <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: "0.65rem" }} />
+                  View on GitHub <ArrowUpRight01Icon size={12} style={{ display: "inline", verticalAlign: "middle" }} />
                 </a>
               </div>
             </div>

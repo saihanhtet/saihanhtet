@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useCallback } from "react";
+import { ArrowLeft01Icon, ArrowRight01Icon } from "hugeicons-react";
 import "./Carousel.css";
 
 interface CarouselProps {
@@ -36,10 +37,10 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
         ))}
       </div>
       <button className="prev-button" onClick={goToPreviousSlide}>
-        <i className="fa-solid fa-caret-left"></i>
+        <ArrowLeft01Icon size={18} />
       </button>
       <button className="next-button" onClick={goToNextSlide}>
-        <i className="fa-solid fa-caret-right"></i>
+        <ArrowRight01Icon size={18} />
       </button>
     </div>
   );

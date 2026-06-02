@@ -1,19 +1,30 @@
 'use client'
 
+import { motion } from "framer-motion";
+import { Archive01Icon, HeadphonesIcon, File01Icon } from "hugeicons-react";
 import "./About.css";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
+};
 
 const About = () => {
   return (
-    <section className="about-section" id="about">
-      <div className="section-tag">Who I am</div>
-      <h2 className="section-heading">About Me</h2>
+    <motion.section
+      className="about-section"
+      id="about"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.div variants={fadeUp}><div className="section-tag">Who I am</div></motion.div>
+      <motion.h2 variants={fadeUp} className="section-heading">About Me</motion.h2>
 
-      <div className="about-grid">
+      <motion.div variants={fadeUp} className="about-grid">
         <a href="https://github.com/saihanhtet?tab=repositories" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
           <div className="about-stat-card">
-            <div className="about-stat-icon">
-              <i className="fa-solid fa-box-archive" />
-            </div>
+            <div className="about-stat-icon"><Archive01Icon size={20} /></div>
             <div className="about-stat-body">
               <div className="about-stat-value">7+</div>
               <div className="about-stat-label">Projects Completed</div>
@@ -21,17 +32,15 @@ const About = () => {
           </div>
         </a>
         <div className="about-stat-card">
-          <div className="about-stat-icon">
-            <i className="fa-solid fa-headphones" />
-          </div>
+          <div className="about-stat-icon"><HeadphonesIcon size={20} /></div>
           <div className="about-stat-body">
             <div className="about-stat-value">24/7</div>
             <div className="about-stat-label">Always Learning</div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="about-bio-card">
+      <motion.div variants={fadeUp} className="about-bio-card">
         <p>
           At 13, my journey in IT began with Python, inspired by Iron Man&apos;s Jarvis AI.
           Progressing from Flask projects to web development, I excelled in my GCSEs at 16
@@ -40,13 +49,14 @@ const About = () => {
           Software Engineering at Lithan Academy, committed to mastering technology and
           embracing its evolution.
         </p>
-      </div>
+      </motion.div>
 
-      <a href="/assets/resume.pdf" className="btn" target="_blank" rel="noopener noreferrer">
-        <i className="fa-regular fa-file" />
-        Download Resume
-      </a>
-    </section>
+      <motion.div variants={fadeUp}>
+        <a href="/assets/resume.pdf" className="btn" target="_blank" rel="noopener noreferrer">
+          <File01Icon size={15} style={{ display: "inline", verticalAlign: "middle", marginRight: "0.4rem" }} /> Download Resume
+        </a>
+      </motion.div>
+    </motion.section>
   );
 };
 

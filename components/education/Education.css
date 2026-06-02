@@ -18,7 +18,7 @@
   top: 6px;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
+  background: linear-gradient(to bottom, var(--p-accent), transparent);
 }
 
 .edu-item {
@@ -37,28 +37,28 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: var(--grad);
-  border: 2px solid var(--bg, #07070f);
-  box-shadow: 0 0 8px var(--glow);
+  background: var(--p-grad);
+  border: 2px solid var(--p-bg);
+  box-shadow: 0 0 8px var(--p-glow);
 }
 
 .edu-card {
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: var(--p-card);
+  border: 1px solid var(--p-border);
   border-radius: 14px;
   padding: 1.25rem 1.5rem;
   transition: border-color 0.2s, background 0.2s;
 }
 
 .edu-card:hover {
-  border-color: var(--border-accent);
-  background: var(--card-hover);
+  border-color: var(--p-border-accent);
+  background: var(--p-card-hover);
 }
 
 .edu-date {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--accent-2);
+  color: var(--p-accent-2);
   letter-spacing: 0.05em;
   margin-bottom: 0.4rem;
 }
@@ -67,14 +67,14 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--p-text);
   line-height: 1.4;
   margin-bottom: 0.2rem;
 }
 
 .edu-subtitle {
   font-size: 0.8rem;
-  color: var(--text-2);
+  color: var(--p-text-2);
 }
 
 /* Tabs (keep one tab for now) */
@@ -92,20 +92,20 @@
   border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text-2);
-  border: 1px solid var(--border);
-  background: var(--card);
+  color: var(--p-text-2);
+  border: 1px solid var(--p-border);
+  background: var(--p-card);
   cursor: pointer;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 
 .edu-tab:hover {
-  color: var(--text);
-  border-color: var(--border-accent);
+  color: var(--p-text);
+  border-color: var(--p-border-accent);
 }
 
 .edu-tab.active {
-  color: var(--accent-2);
-  border-color: var(--border-accent);
+  color: var(--p-accent-2);
+  border-color: var(--p-border-accent);
   background: rgba(147, 51, 234, 0.1);
 }

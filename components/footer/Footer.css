@@ -1,5 +1,5 @@
 .footer {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--p-border);
   padding: 2rem;
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
-  background: var(--grad-text);
+  background: var(--p-grad-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -22,8 +22,20 @@
 
 .footer-copy {
   font-size: 0.8rem;
-  color: var(--text-3);
+  color: var(--p-text-3);
 }
+
+.footer-admin-link {
+  font-size: 0.7rem;
+  color: transparent;
+  user-select: none;
+  pointer-events: auto;
+  text-decoration: none;
+  opacity: 0.01;
+  transition: opacity 0.3s;
+}
+
+.footer-admin-link:hover { opacity: 0.3; }
 
 @media (max-width: 480px) {
   .footer {

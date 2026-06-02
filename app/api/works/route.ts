@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb";
 
+function isAuthorized(req: Request) {
+  return req.headers.get("Authorization") === `Bearer ${process.env.ADMIN_PASSWORD}`;
+}
+
 export async function GET() {
   try {
     const client = await clientPromise;
@@ -13,6 +17,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  if (!isAuthorized(request)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   try {
     const body = await request.json();
     const client = await clientPromise;

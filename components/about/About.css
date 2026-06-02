@@ -13,8 +13,8 @@
 }
 
 .about-stat-card {
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: var(--p-card);
+  border: 1px solid var(--p-border);
   border-radius: 16px;
   padding: 1.5rem;
   display: flex;
@@ -24,8 +24,8 @@
 }
 
 .about-stat-card:hover {
-  border-color: var(--border-accent);
-  background: var(--card-hover);
+  border-color: var(--p-border-accent);
+  background: var(--p-card-hover);
 }
 
 .about-stat-icon {
@@ -33,12 +33,12 @@
   height: 44px;
   border-radius: 12px;
   background: rgba(147, 51, 234, 0.12);
-  border: 1px solid var(--border-accent);
+  border: 1px solid var(--p-border-accent);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
-  color: var(--accent-2);
+  color: var(--p-accent-2);
   flex-shrink: 0;
 }
 
@@ -48,7 +48,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
-  background: var(--grad-text);
+  background: var(--p-grad-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -57,13 +57,13 @@
 
 .about-stat-label {
   font-size: 0.8rem;
-  color: var(--text-2);
+  color: var(--p-text-2);
   margin-top: 2px;
 }
 
 .about-bio-card {
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: var(--p-card);
+  border: 1px solid var(--p-border);
   border-radius: 16px;
   padding: 1.75rem;
   margin-bottom: 1.5rem;
@@ -71,7 +71,7 @@
 
 .about-bio-card p {
   font-size: 0.925rem;
-  color: var(--text-2);
+  color: var(--p-text-2);
   line-height: 1.8;
 }
 
