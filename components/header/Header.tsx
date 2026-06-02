@@ -1,11 +1,18 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Header.css";
 
 const Header = () => {
   const [navToggler, setNavToggler] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState("Home");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navItems = [
     { name: "Home", href: "#home", icon: "fa-house" },
@@ -16,38 +23,27 @@ const Header = () => {
     { name: "Contact", href: "#contact", icon: "fa-comments" },
   ];
 
-  const handleNavItemClick = (itemName: string) => {
-    setActiveNavItem(itemName);
-    setNavToggler(false);
-  };
-
   return (
-    <header className="header">
+    <header className={`header${scrolled ? " scrolled" : ""}`}>
       <nav className="navbar-container">
-        <a href="/" className="navbar-brand">
-          <span className="text-secondary">S. </span>
-          <span>Han Htet San</span>
-        </a>
-        <div className={navToggler ? "navbar-menu navbar-show" : "navbar-menu"}>
+        <a href="/" className="navbar-brand">S. Han Htet San</a>
+        <div className={`navbar-menu${navToggler ? " navbar-show" : ""}`}>
           <ul className="nav-list">
             {navItems.map((item) => (
-              <li className="nav-item" key={item.name}>
+              <li key={item.name}>
                 <a
                   href={item.href}
-                  onClick={() => handleNavItemClick(item.name)}
-                  className={`nav-link icon-box ${activeNavItem === item.name ? "active" : ""}`}
+                  onClick={() => { setActiveNavItem(item.name); setNavToggler(false); }}
+                  className={`nav-link${activeNavItem === item.name ? " active" : ""}`}
                 >
-                  <i className={`fa-solid ${item.icon}`}></i>
+                  <i className={`fa-solid ${item.icon}`} />
                   <span>{item.name}</span>
                 </a>
               </li>
             ))}
           </ul>
         </div>
-        <i
-          className="fa-solid fa-list nav-toggler"
-          onClick={() => setNavToggler(!navToggler)}
-        ></i>
+        <i className="fa-solid fa-bars nav-toggler" onClick={() => setNavToggler(!navToggler)} />
       </nav>
     </header>
   );

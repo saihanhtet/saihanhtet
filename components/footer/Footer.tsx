@@ -3,10 +3,10 @@
 import "./Footer.css";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
   return (
-    <footer className="footer-container">
-      <p>Sai Han Htet &copy; {currentYear}</p>
+    <footer className="footer">
+      <span className="footer-brand">S. Han Htet San</span>
+      <span className="footer-copy">&copy; {new Date().getFullYear()} — All rights reserved</span>
     </footer>
   );
 };

@@ -2,53 +2,50 @@
 
 import "./Skill.css";
 
-const Skill = () => {
-  const data = [
-    { id: 1, title: "Python", percent: 100, stopColor1: "#e91e63", stopColor2: "#673ab7" },
-    { id: 2, title: "Java", percent: 60, stopColor1: "#e91e63", stopColor2: "#673ab7" },
-    { id: 3, title: "JavaScript", percent: 75, stopColor1: "#e91e63", stopColor2: "#673ab7" },
-    { id: 4, title: "HTML/CSS", percent: 100, stopColor1: "#e91e63", stopColor2: "#673ab7" },
-    { id: 5, title: "SQL", percent: 85, stopColor1: "#e91e63", stopColor2: "#673ab7" },
-  ];
+const skills = [
+  { id: 1, name: "Python", percent: 100, icon: "fa-python" },
+  { id: 2, name: "HTML / CSS", percent: 100, icon: "fa-html5" },
+  { id: 3, name: "JavaScript", percent: 75, icon: "fa-js" },
+  { id: 4, name: "SQL", percent: 85, icon: "fa-database" },
+  { id: 5, name: "Java", percent: 60, icon: "fa-java" },
+  { id: 6, name: "React", percent: 70, icon: "fa-react" },
+];
 
+const tools = ["Django", "Electron", "Next.js", "Git", "Node.js", "TypeScript", "MongoDB", "Linux"];
+
+const Skill = () => {
   return (
-    <section className="container-xl skill-session" id="skill">
-      <div className="sheet-container skill-container">
-        <div className="skill-header sheet-header">
-          <h4>My Skills</h4>
-          <small>Skills</small>
-        </div>
-        <div className="skill-content">
-          {data.map((item) => (
-            <div className="skills" key={item.id}>
-              <div className="outer">
-                <div className="inner">
-                  <div id="title">{item.title}</div>
-                  <div id="number">{item.percent}%</div>
-                </div>
+    <section className="skill-section" id="skill">
+      <div className="section-tag">What I know</div>
+      <h2 className="section-heading">My Skills</h2>
+
+      <div className="skill-grid">
+        {skills.map((skill) => (
+          <div key={skill.id} className="skill-card">
+            <div className="skill-card-top">
+              <div className="skill-icon-wrap">
+                <i className={`fa-brands ${skill.icon}`} />
               </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                version="1.1"
-                width="160px"
-                height="160px"
-                className="skill-svg"
-              >
-                <defs>
-                  <linearGradient id="GradientColor">
-                    <stop offset="0%" stopColor={item.stopColor1} />
-                    <stop offset="100%" stopColor={item.stopColor2} />
-                  </linearGradient>
-                </defs>
-                <circle
-                  cx="80"
-                  cy="80"
-                  r="70"
-                  className={`circle-${item.id}`}
-                  strokeLinecap="round"
-                />
-              </svg>
+              <div className="skill-info">
+                <span className="skill-name">{skill.name}</span>
+                <span className="skill-pct">{skill.percent}%</span>
+              </div>
             </div>
+            <div className="skill-bar-track">
+              <div
+                className="skill-bar-fill"
+                style={{ "--pct": `${skill.percent}%` } as React.CSSProperties}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="tools-section">
+        <p className="tools-label">Tools & Technologies</p>
+        <div className="tools-tags">
+          {tools.map((t) => (
+            <span key={t} className="tool-tag">{t}</span>
           ))}
         </div>
       </div>

@@ -1,80 +1,82 @@
-.about-container {
-  row-gap: 7em;
-  font-family: "Poppins", sans-serif;
+.about-section {
+  padding: 6rem 2rem;
+}
+
+.about-section .section-tag { margin-bottom: 0.5rem; }
+.about-section .section-heading { margin-bottom: 2.5rem; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.about-stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.about-stat-card:hover {
+  border-color: var(--border-accent);
+  background: var(--card-hover);
+}
+
+.about-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(147, 51, 234, 0.12);
+  border: 1px solid var(--border-accent);
+  display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.1rem;
+  color: var(--accent-2);
+  flex-shrink: 0;
 }
 
-.about-container h4 {
-  font-size: 1.5rem;
-}
-.about-content {
-  margin-top: 1.5rem;
-  position: relative;
+.about-stat-body {}
+
+.about-stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
 }
 
-.cards-box {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+.about-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-2);
+  margin-top: 2px;
 }
 
-.about-card {
-  background-color: var(--navbar-30);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 0.75rem;
-  text-align: center;
-  padding: 1rem 1.25rem;
-  cursor: pointer;
-  width: 140px;
-  max-width: 140px;
+.about-bio-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
 }
 
-.about-card.info-card {
-  margin-top: 2rem;
-  width: 100%;
-  max-width: 700px;
+.about-bio-card p {
+  font-size: 0.925rem;
+  color: var(--text-2);
+  line-height: 1.8;
 }
 
-.about-card i {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-.btn i {
-  margin: 0;
-}
-
-.about-card .title {
-  font-family: "Kanit", sans-serif;
-  font-size: 18px;
-  color: black;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
-.about-card .sub-title {
-  font-size: 13px;
-}
-@media screen and (max-width: 768px) {
-  .about-container {
-    padding-top: 3rem;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .cards-box {
-    gap: 15px;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .cards-box {
-    gap: 5px;
+@media (max-width: 640px) {
+  .about-grid {
+    grid-template-columns: 1fr;
   }
 }
