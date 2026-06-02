@@ -1,0 +1,84 @@
+.exp-section {
+  padding: 6rem 2rem;
+}
+
+.exp-section .section-tag { margin-bottom: 0.5rem; }
+.exp-section .section-heading { margin-bottom: 3rem; }
+
+.exp-timeline {
+  position: relative;
+  padding-left: 2rem;
+  max-width: 680px;
+}
+
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--p-accent), transparent);
+}
+
+.exp-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.exp-item:last-child { margin-bottom: 0; }
+
+.exp-dot {
+  position: absolute;
+  left: -2rem;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--p-grad);
+  border: 2px solid var(--p-bg);
+  box-shadow: 0 0 8px var(--p-glow);
+}
+
+.exp-card {
+  background: var(--p-card);
+  border: 1px solid var(--p-border);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.exp-card:hover {
+  border-color: var(--p-border-accent);
+  background: var(--p-card-hover);
+}
+
+.exp-date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--p-accent-2);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.exp-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--p-text);
+  line-height: 1.4;
+  margin-bottom: 0.15rem;
+}
+
+.exp-company {
+  font-size: 0.8rem;
+  color: var(--p-accent-2);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.exp-desc {
+  font-size: 0.82rem;
+  color: var(--p-text-2);
+  line-height: 1.6;
+}
