@@ -1,46 +1,100 @@
 .works-section {
-  padding: 6rem 2rem;
+  padding: 6rem 0;
+  overflow: hidden;
 }
 
-.works-section .section-tag { margin-bottom: 0.5rem; }
-.works-section .section-heading { margin-bottom: 0.75rem; }
+.works-section .section-tag { margin: 0 2rem 0.5rem; }
+.works-section .section-heading { margin: 0 2rem 0.75rem; }
 
 .works-subtitle {
   font-size: 0.9rem;
   color: var(--p-text-2);
-  margin-bottom: 2.5rem;
+  margin: 0 2rem 2.5rem;
 }
 
-/* Bento grid */
-.works-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+/* ── Marquee outer — edge fade mask ── */
+.works-marquee-outer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
 }
 
+/* Pause both rows on hover of the outer container */
+.works-marquee-outer:hover .works-track {
+  animation-play-state: paused;
+}
+
+.works-track-wrap {
+  overflow: hidden;
+}
+
+.works-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+}
+
+.works-track--left {
+  animation: worksScrollLeft 40s linear infinite;
+}
+
+.works-track--right {
+  animation: worksScrollRight 40s linear infinite;
+}
+
+@keyframes worksScrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes worksScrollRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* ── Card ── */
 .work-card {
-  position: relative;
+  width: 280px;
+  flex-shrink: 0;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--p-border);
-  aspect-ratio: 4/3;
   background: var(--p-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
-  transition: border-color 0.25s, transform 0.25s;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
 }
 
 .work-card:hover {
+  transform: translateY(-5px);
   border-color: var(--p-border-accent);
-  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(147, 51, 234, 0.18);
 }
 
-/* First card spans 2 columns */
-.work-card:first-child {
-  grid-column: span 2;
-  aspect-ratio: 16/9;
+/* Image */
+.work-card-img {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: var(--p-card-hover);
 }
 
-.work-card img {
+.work-card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -48,95 +102,73 @@
   transition: transform 0.4s ease;
 }
 
-.work-card:hover img {
-  transform: scale(1.04);
+.work-card:hover .work-card-img img {
+  transform: scale(1.06);
 }
 
-.work-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(5,5,15,0.96) 0%, rgba(5,5,15,0.5) 55%, transparent 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.25rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.work-card-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--p-grad-subtle);
 }
 
-.work-card:hover .work-card-overlay {
-  opacity: 1;
+/* Body */
+.work-card-body {
+  padding: 1rem 1.1rem 1.1rem;
 }
 
-/* Always show title */
-.work-card-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem 1.25rem;
-  background: linear-gradient(to top, rgba(5,5,15,0.9) 0%, transparent 100%);
-}
-
-/* Overlay and footer text always white — they sit on a dark gradient over images */
 .work-card-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #f1f5f9;
+  color: var(--p-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.35rem;
 }
 
 .work-card-desc {
   font-size: 0.78rem;
-  color: #94a3b8;
-  margin-top: 0.3rem;
-  line-height: 1.5;
+  color: var(--p-text-2);
+  line-height: 1.55;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: 2.4rem;
+  margin-bottom: 0.85rem;
 }
 
 .work-card-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.75rem;
-  font-size: 0.78rem;
+  gap: 0.3rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--p-accent-2);
   border: 1px solid var(--p-border-accent);
   border-radius: 7px;
-  padding: 0.3rem 0.75rem;
-  width: fit-content;
-  transition: background 0.2s;
+  padding: 0.28rem 0.65rem;
+  transition: background 0.2s, color 0.2s;
 }
 
 .work-card-link:hover {
-  background: rgba(147, 51, 234, 0.2);
+  background: rgba(147, 51, 234, 0.15);
 }
 
-.works-loading {
+.works-loading,
+.works-empty {
   text-align: center;
   color: var(--p-text-2);
-  padding: 4rem 0;
-  grid-column: span 3;
+  padding: 4rem 2rem;
 }
 
-@media (max-width: 900px) {
-  .works-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 640px) {
+  .work-card {
+    width: 240px;
   }
-  .work-card:first-child {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 560px) {
-  .works-grid {
-    grid-template-columns: 1fr;
-  }
-  .work-card:first-child {
-    grid-column: span 1;
+  .work-card-img {
+    height: 136px;
   }
 }
