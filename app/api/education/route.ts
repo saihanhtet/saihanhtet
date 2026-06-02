@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import clientPromise from "@/lib/mongodb";
+import { sql } from "@/lib/neon";
 
 function isAuthorized(req: Request) {
   return req.headers.get("Authorization") === `Bearer ${process.env.ADMIN_PASSWORD}`;
@@ -7,10 +7,11 @@ function isAuthorized(req: Request) {
 
 export async function GET() {
   try {
-    const client = await clientPromise;
-    const db = client.db("portfolio");
-    const items = await db.collection("education").find({}).sort({ order: -1 }).toArray();
-    return NextResponse.json(items);
+    const rows = await sql`
+      SELECT id::text AS "_id", title, subtitle, start_year AS start, end_year AS end, ord AS "order"
+      FROM education ORDER BY ord DESC
+    `;
+    return NextResponse.json(rows);
   } catch {
     return NextResponse.json({ error: "Failed to fetch education" }, { status: 500 });
   }
@@ -19,11 +20,13 @@ export async function GET() {
 export async function POST(request: Request) {
   if (!isAuthorized(request)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   try {
-    const body = await request.json();
-    const client = await clientPromise;
-    const db = client.db("portfolio");
-    const result = await db.collection("education").insertOne(body);
-    return NextResponse.json(result, { status: 201 });
+    const { title = "", subtitle = "", start = "", end = "", order = 0 } = await request.json();
+    const rows = await sql`
+      INSERT INTO education (title, subtitle, start_year, end_year, ord)
+      VALUES (${title}, ${subtitle}, ${start}, ${end}, ${order})
+      RETURNING id::text AS "_id", title, subtitle, start_year AS start, end_year AS end, ord AS "order"
+    `;
+    return NextResponse.json(rows[0], { status: 201 });
   } catch {
     return NextResponse.json({ error: "Failed to create education item" }, { status: 500 });
   }

@@ -1,8 +1,5 @@
 import { NextResponse } from "next/server";
-import clientPromise from "@/lib/mongodb";
-
-const DB = "portfolio";
-const COL = "settings";
+import { sql } from "@/lib/neon";
 
 const defaults = {
   name: "S. Han Htet San",
@@ -15,22 +12,37 @@ const defaults = {
   instagram: "https://www.instagram.com/hanhtet.ivan/",
   facebook: "https://www.facebook.com/hanhtet.ivan",
   discord: "https://discordapp.com/users/1019565322681974806",
+  tools: [] as string[],
 };
 
-export async function GET() {
-  try {
-    const client = await clientPromise;
-    const db = client.db(DB);
-    const doc = await db.collection(COL).findOne({ _id: "main" as never });
-    return NextResponse.json(doc ?? defaults);
-  } catch {
-    return NextResponse.json(defaults);
-  }
+function rowToSettings(row: Record<string, unknown>) {
+  return {
+    name:       row.name        ?? defaults.name,
+    role:       row.role        ?? defaults.role,
+    bio:        row.bio         ?? defaults.bio,
+    profilePic: row.profile_pic ?? defaults.profilePic,
+    email:      row.email       ?? defaults.email,
+    phone:      row.phone       ?? defaults.phone,
+    github:     row.github      ?? defaults.github,
+    instagram:  row.instagram   ?? defaults.instagram,
+    facebook:   row.facebook    ?? defaults.facebook,
+    discord:    row.discord     ?? defaults.discord,
+    tools:      Array.isArray(row.tools) ? row.tools : (typeof row.tools === "string" ? JSON.parse(row.tools) : []),
+  };
 }
 
 function isAuthorized(req: Request) {
-  const auth = req.headers.get("Authorization");
-  return auth === `Bearer ${process.env.ADMIN_PASSWORD}`;
+  return req.headers.get("Authorization") === `Bearer ${process.env.ADMIN_PASSWORD}`;
+}
+
+export async function GET() {
+  try {
+    const rows = await sql`SELECT * FROM settings WHERE id = 'main'`;
+    if (rows.length === 0) return NextResponse.json(defaults);
+    return NextResponse.json(rowToSettings(rows[0] as Record<string, unknown>));
+  } catch {
+    return NextResponse.json(defaults);
+  }
 }
 
 export async function PUT(request: Request) {
@@ -39,13 +51,30 @@ export async function PUT(request: Request) {
   }
   try {
     const body = await request.json();
-    const client = await clientPromise;
-    const db = client.db(DB);
-    await db.collection(COL).replaceOne(
-      { _id: "main" as never },
-      { _id: "main", ...body },
-      { upsert: true }
-    );
+    const {
+      name = "", role = "", bio = "", profilePic = "",
+      email = "", phone = "", github = "", instagram = "", facebook = "", discord = "",
+      tools = [],
+    } = body;
+    const toolsJson = JSON.stringify(Array.isArray(tools) ? tools : []);
+
+    await sql`
+      INSERT INTO settings (id, name, role, bio, profile_pic, email, phone, github, instagram, facebook, discord, tools)
+      VALUES ('main', ${name}, ${role}, ${bio}, ${profilePic}, ${email}, ${phone},
+              ${github}, ${instagram}, ${facebook}, ${discord}, ${toolsJson}::jsonb)
+      ON CONFLICT (id) DO UPDATE SET
+        name        = EXCLUDED.name,
+        role        = EXCLUDED.role,
+        bio         = EXCLUDED.bio,
+        profile_pic = EXCLUDED.profile_pic,
+        email       = EXCLUDED.email,
+        phone       = EXCLUDED.phone,
+        github      = EXCLUDED.github,
+        instagram   = EXCLUDED.instagram,
+        facebook    = EXCLUDED.facebook,
+        discord     = EXCLUDED.discord,
+        tools       = EXCLUDED.tools
+    `;
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Failed" }, { status: 500 });

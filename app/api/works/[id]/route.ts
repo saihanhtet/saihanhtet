@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import { ObjectId } from "mongodb";
-import clientPromise from "@/lib/mongodb";
+import { sql } from "@/lib/neon";
 
 function isAuthorized(req: Request) {
   return req.headers.get("Authorization") === `Bearer ${process.env.ADMIN_PASSWORD}`;
@@ -9,14 +8,9 @@ function isAuthorized(req: Request) {
 export async function PUT(request: Request, { params }: { params: { id: string } }) {
   if (!isAuthorized(request)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   try {
-    const body = await request.json();
-    const { _id, ...data } = body;
-    const client = await clientPromise;
-    const db = client.db("portfolio");
-    await db.collection("works").updateOne(
-      { _id: new ObjectId(params.id) },
-      { $set: data }
-    );
+    const { title, content, image, link } = await request.json();
+    const id = parseInt(params.id, 10);
+    await sql`UPDATE works SET title=${title}, content=${content}, image=${image}, link=${link} WHERE id=${id}`;
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Failed" }, { status: 500 });
@@ -26,9 +20,8 @@ export async function PUT(request: Request, { params }: { params: { id: string }
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
   if (!isAuthorized(request)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   try {
-    const client = await clientPromise;
-    const db = client.db("portfolio");
-    await db.collection("works").deleteOne({ _id: new ObjectId(params.id) });
+    const id = parseInt(params.id, 10);
+    await sql`DELETE FROM works WHERE id=${id}`;
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Failed" }, { status: 500 });
