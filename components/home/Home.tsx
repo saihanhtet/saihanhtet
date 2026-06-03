@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github01Icon, Facebook01Icon, InstagramIcon, DiscordIcon } from "hugeicons-react";
 import type { FC, SVGProps } from "react";
+import NowPlaying from "@/components/spotify/NowPlaying";
 import "./Home.css";
 
 interface Settings {
@@ -92,6 +93,10 @@ const Home = () => {
                 <Icon size={18} />
               </a>
             ))}
+          </motion.div>
+
+          <motion.div custom={6} variants={fadeUp} initial="hidden" animate="show">
+            <NowPlaying />
           </motion.div>
         </div>
 

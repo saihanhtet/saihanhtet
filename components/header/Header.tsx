@@ -23,9 +23,11 @@ const navItems = [
 const Header = () => {
   const [activeNavItem, setActiveNavItem] = useState("Home");
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
+    setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -62,7 +64,7 @@ const Header = () => {
             onClick={() => setTheme(isDark ? "light" : "dark")}
             aria-label="Toggle theme"
           >
-            {isDark ? <Sun size={16} /> : <Moon size={16} />}
+            {mounted && (isDark ? <Sun size={16} /> : <Moon size={16} />)}
           </button>
 
           {/* Mobile Sheet trigger */}

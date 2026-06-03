@@ -1,0 +1,103 @@
+.np-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--p-border);
+  background: var(--p-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  max-width: 270px;
+  width: fit-content;
+}
+
+.np-card:hover {
+  background: var(--p-card-hover);
+  border-color: rgba(29, 185, 84, 0.3);
+  transform: translateY(-2px);
+}
+
+.np-art {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.np-body {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.np-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.np-status {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #1db954;
+}
+
+/* Equalizer bars */
+.np-eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+  margin-left: 1px;
+}
+
+.np-eq span {
+  display: block;
+  width: 2.5px;
+  border-radius: 2px;
+  background: #1db954;
+}
+
+.np-eq span:nth-child(1) {
+  height: 10px;
+  animation: npBar 1s ease-in-out infinite;
+}
+.np-eq span:nth-child(2) {
+  height: 6px;
+  animation: npBar 1s ease-in-out infinite 0.2s;
+}
+.np-eq span:nth-child(3) {
+  height: 8px;
+  animation: npBar 1s ease-in-out infinite 0.4s;
+}
+
+@keyframes npBar {
+  0%, 100% { transform: scaleY(1); }
+  50%       { transform: scaleY(0.3); }
+}
+
+.np-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--p-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.np-artist {
+  font-size: 0.68rem;
+  color: var(--p-text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
